@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AppRouter from '../../router';
 
 function Header() {
   return (
@@ -16,3 +17,5 @@ function Header() {
     </ul>
   );
 }
+
+export default Header;
