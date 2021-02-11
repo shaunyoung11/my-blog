@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
+import store from '../../store';
+import { getArticle } from '../../store/actionCreators';
 
-function Archive() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.log(`useEffect=>You clicked ${count} times`);
-  });
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        click me
-      </button>
-    </div>
-  );
+class Archive extends Component {
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+  }
+
+  componentDidMount() {
+    let group =
+      this.props.match.params.group === undefined
+        ? 'all'
+        : this.props.match.params.group;
+    const action = getArticle(group);
+    store.dispatch(action);
+  }
+
+  render() {
+    return <div>Archive</div>;
+  }
 }
 
 export default Archive;
