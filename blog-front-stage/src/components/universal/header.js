@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import AppRouter from '../../router';
 
 function Header() {
   return (
@@ -12,7 +11,7 @@ function Header() {
         <Link to="/list/">列表</Link>
       </li>
       <li>
-        <Link to="/archive">归档</Link>
+        <Link to="/archive/daily">生活归档</Link>
       </li>
     </ul>
   );
