@@ -10,19 +10,15 @@ class Archive extends Component {
   }
 
   componentDidMount() {
-    let group =
-      this.props.match.params.group === undefined
-        ? 'all'
-        : this.props.match.params.group;
-    const action = getArticle(group);
+    const action = getArticle(this.state.group);
     store.dispatch(action);
   }
 
   render() {
     return (
       <div>
-        <Hel title={this.state.title} defaultTitle={this.state.title} />
-        Archive
+        <Hel title={this.state.title} defaultTitle={this.state.defaultTitle} />
+        {}
       </div>
     );
   }
