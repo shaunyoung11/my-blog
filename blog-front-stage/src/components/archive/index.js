@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import store from '../../store';
 import { getArticle } from '../../store/actionCreators';
+import Hel from '../universal/helmet';
 
 class Archive extends Component {
   constructor(props) {
@@ -18,7 +19,12 @@ class Archive extends Component {
   }
 
   render() {
-    return <div>Archive</div>;
+    return (
+      <div>
+        <Hel title={this.state.title} defaultTitle={this.state.title} />
+        Archive
+      </div>
+    );
   }
 }
 

@@ -5,11 +5,16 @@ import './style.css';
 function Header(props) {
   return (
     <div className="header">
-      <div className="site-info">
-        <img src={props.logoUrl} alt="" className="site-logo"></img>
-        <span className="site-name">{props.siteName}</span>
+      <a href={props.siteUrl} className="site-name">
+        {props.siteName}
+      </a>
+      <img src={props.logoUrl} alt="" className="site-logo"></img>
+      <div className="nav-burger">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
-      <ul className="nav">
+      <ul className="nav hide">
         <li className="nav-item">
           <Link to="/">首页</Link>
         </li>

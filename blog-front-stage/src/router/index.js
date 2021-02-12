@@ -8,7 +8,10 @@ function AppRouter() {
   return (
     <div>
       <Router>
-        <Header />
+        <Header
+          logoUrl="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
+          siteName="小扬Shaun"
+        />
         <Route path="/" exact component={Archive} />
         <Route path="/links" component={Links} />
         <Route path="/about" component={About} />
