@@ -1,7 +1,38 @@
-.nav {
+.header {
   width: 100%;
-  height: 80px;
+  height: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.site-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 10%;
+}
+
+.site-logo {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  justify-self: center;
+}
+
+.nav {
+  width: 40%;
+  height: calc(100vh - 50px);
+  position: absolute;
+  right: 0;
+  top: 50px;
   display: flex;
+  transition: all ease-in-out 0.4s;
+  background-color: aqua;
+}
+
+.nav.hide {
+  right: -100%;
 }
 
 .nav-item {
