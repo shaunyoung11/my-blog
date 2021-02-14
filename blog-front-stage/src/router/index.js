@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Archive from '../components/archive';
 import About from '../components/pages/about';
 import Links from '../components/pages/links';
+import Footer from '../components/universal/footer';
 import Header from '../components/universal/header';
 
 function AppRouter() {
@@ -15,6 +16,7 @@ function AppRouter() {
         <Route path="/" exact component={Archive} />
         <Route path="/links" component={Links} />
         <Route path="/about" component={About} />
+        <Footer></Footer>
       </Router>
     </div>
   );
