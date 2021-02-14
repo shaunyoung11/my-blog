@@ -2,7 +2,10 @@ import { GET_ARTICLE, GET_HEADER } from './actionTypes';
 
 const defaultState = {
   showNav: false,
+  current: 1,
+  pageSize: 1,
   siteInfo: {},
+  articles: [],
 };
 // eslint-disable-next-line
 export default (state = defaultState, action) => {
