@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import store from '../../store';
 import { getArticle } from '../../store/actionCreators';
 import { Pagination } from 'antd';
+import './style.css';
 
 class Archive extends Component {
   constructor(props) {
@@ -24,27 +25,42 @@ class Archive extends Component {
   render() {
     return (
       <div className="page">
-        <div className="blog"></div>
         <div className="list">
           {this.state.articles.map((item, index) => {
             if (
               index >= (this.state.current - 1) * this.state.pageSize &&
               index < this.state.current * this.state.pageSize
-            )
+            ) {
               return (
                 <div className="list-item" key={index}>
-                  <h2 className="title">{item.title}</h2>
+                  <div className="img">
+                    <img src={item.cover} alt="" />
+                  </div>
+                  <div className="info">
+                    <h2 className="title">{item.title}</h2>
+                    <p className="abstract">{item.abstract}</p>
+                    <div className="detail">
+                      <div className="author">{item.author}</div>
+                      <div className="time">{item.time}</div>
+                      <div className="group">{item.group}</div>
+                      <div className="view">{item.view}</div>
+                      <div className="comment">{item.comment}</div>
+                    </div>
+                  </div>
                 </div>
               );
+            } else {
+              return null;
+            }
           })}
-          <Pagination
-            current={this.state.current}
-            pageSize={this.state.pageSize}
-            total={this.state.articles.length}
-            onChange={this.handlePageChange}
-            hideOnSinglePage={true}
-          />
         </div>
+        <Pagination
+          current={this.state.current}
+          pageSize={this.state.pageSize}
+          total={this.state.articles.length}
+          onChange={this.handlePageChange}
+          hideOnSinglePage={true}
+        />
       </div>
     );
   }
