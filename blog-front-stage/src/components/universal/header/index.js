@@ -1,24 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
+import store from '../../../store';
 import 'antd/dist/antd.css';
 import './style.css';
+import { getHeader } from '../../../store/actionCreators';
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showNav: false,
-    };
+    const action = getHeader();
+    store.dispatch(action);
+    this.state = store.getState();
     this.handleBurgerClick = this.handleBurgerClick.bind(this);
+    this.storeChange = this.storeChange.bind(this);
+    store.subscribe(this.storeChange);
   }
   render() {
     return (
       <div className="header">
-        <a href={this.props.siteUrl} className="site-name">
-          {this.props.siteName}
+        <a href={this.state.siteInfo.url} className="site-name">
+          {this.state.siteInfo.name}
         </a>
-        <img src={this.props.logoUrl} alt="" className="site-logo"></img>
+        <img src={this.state.siteInfo.logo} alt="" className="site-logo"></img>
         <div className="nav-burger" onClick={this.handleBurgerClick}>
           <div
             className={
@@ -61,6 +65,10 @@ class Header extends Component {
     this.setState({
       showNav: !this.state.showNav,
     });
+  }
+
+  storeChange() {
+    this.setState(store.getState());
   }
 }
 

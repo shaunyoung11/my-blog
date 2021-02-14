@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import store from '../../store';
 import { getArticle } from '../../store/actionCreators';
-import Hel from '../universal/helmet';
 
 class Archive extends Component {
   constructor(props) {
@@ -10,17 +9,16 @@ class Archive extends Component {
   }
 
   componentDidMount() {
-    const action = getArticle(this.state.group);
+    let group =
+      this.props.match.params.group === undefined
+        ? 'all'
+        : this.props.match.params.group;
+    const action = getArticle(group);
     store.dispatch(action);
   }
 
   render() {
-    return (
-      <div>
-        <Hel title={this.state.title} defaultTitle={this.state.defaultTitle} />
-        {}
-      </div>
-    );
+    return <div className="list"></div>;
   }
 }
 
