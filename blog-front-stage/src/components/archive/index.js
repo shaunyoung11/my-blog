@@ -33,18 +33,21 @@ class Archive extends Component {
             ) {
               return (
                 <div className="list-item" key={index}>
+                  <div className="backdrop">
+                    <img src={item.cover} alt="" />
+                  </div>
                   <div className="img">
+                    <div className="abstract">
+                      <p>{item.abstract}</p>
+                    </div>
                     <img src={item.cover} alt="" />
                   </div>
                   <div className="info">
                     <h2 className="title">{item.title}</h2>
-                    <p className="abstract">{item.abstract}</p>
+
                     <div className="detail">
-                      <div className="author">{item.author}</div>
-                      <div className="time">{item.time}</div>
                       <div className="group">{item.group}</div>
                       <div className="view">{item.view}</div>
-                      <div className="comment">{item.comment}</div>
                     </div>
                   </div>
                 </div>

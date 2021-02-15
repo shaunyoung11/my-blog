@@ -3,7 +3,7 @@ import { GET_ARTICLE, GET_HEADER } from './actionTypes';
 const defaultState = {
   showNav: false,
   current: 1,
-  pageSize: 6,
+  pageSize: 9,
   siteInfo: {},
   articles: [],
 };
