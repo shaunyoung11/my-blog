@@ -5,7 +5,12 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <div className="blog-info"></div>
+        <div className="blog-info">
+          <div className="blog-name">小扬Shaun</div>
+          <div className="blog-intro"></div>
+          <a href="https://beian.miit.gov.cn/" className="icp"></a>
+        </div>
+        <div className="contact"></div>
       </div>
     );
   }
