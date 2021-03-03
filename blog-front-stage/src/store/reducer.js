@@ -20,7 +20,7 @@ export default (state = defaultState, action) => {
   if (action.type === GET_HEADER) {
     console.log(action.value);
     let newState = JSON.parse(JSON.stringify(state));
-    newState.siteInfo = action.value.siteInfo;
+    newState.siteInfo = action.value;
     return newState;
   }
   return state;

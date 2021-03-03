@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import store from '../../store';
 import { getArticle } from '../../store/actionCreators';
 import { Pagination } from 'antd';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 class Archive extends Component {
@@ -18,7 +19,7 @@ class Archive extends Component {
       this.props.match.params.group === undefined
         ? 'all'
         : this.props.match.params.group;
-    const action = getArticle(group);
+    const action = getArticle(group, this.state.current, this.state.pageSize);
     store.dispatch(action);
   }
 
@@ -46,7 +47,11 @@ class Archive extends Component {
                     <h2 className="title">{item.title}</h2>
 
                     <div className="detail">
-                      <div className="group">{item.group}</div>
+                      <div className="group">
+                        <Link to={'/archives/' + item.group}>
+                          {item.archive}
+                        </Link>
+                      </div>
                       <div className="view">{item.view}</div>
                     </div>
                   </div>
