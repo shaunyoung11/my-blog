@@ -9,9 +9,9 @@ class Archive extends Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
-    this.storeChange = this.storeChange.bind(this);
-    this.handlePageChange = this.handlePageChange.bind(this);
-    store.subscribe(this.storeChange);
+    this.storeChange = this.storeChange.bind(this); // store状态改变时触发的函数
+    this.handlePageChange = this.handlePageChange.bind(this); // 处理页码改变
+    store.subscribe(this.storeChange); // 订阅store状态改变
   }
 
   componentDidMount() {
@@ -33,25 +33,36 @@ class Archive extends Component {
               index < this.state.current * this.state.pageSize
             ) {
               return (
+                // 每个文章卡片
                 <div className="list-item" key={index}>
+                  {/* 背景图片，具有模糊效果 */}
                   <div className="backdrop">
                     <img src={item.cover} alt="" />
                   </div>
-                  <div className="img">
-                    <div className="abstract">
-                      <p>{item.abstract}</p>
+                  {/* 文章头图，无模糊效果 */}
+                  <Link to={'/post/' + item.cid}>
+                    <div className="img">
+                      <div className="abstract">
+                        <p>{item.abstract}</p>
+                      </div>
+                      <img src={item.cover} alt="" />
                     </div>
-                    <img src={item.cover} alt="" />
-                  </div>
+                  </Link>
+                  {/* 文章信息 */}
                   <div className="info">
-                    <h2 className="title">{item.title}</h2>
-
+                    {/* 标题 */}
+                    <Link to={'/post/' + item.cid}>
+                      <h2 className="title">{item.title}</h2>
+                    </Link>
+                    {/* 详细信息 */}
                     <div className="detail">
+                      {/* 文章分类 */}
                       <div className="group">
                         <Link to={'/archives/' + item.group}>
                           {item.archive}
                         </Link>
                       </div>
+                      {/* 浏览量 */}
                       <div className="view">{item.view}</div>
                     </div>
                   </div>
@@ -77,7 +88,12 @@ class Archive extends Component {
     this.setState(store.getState());
   }
 
+  /**
+   *
+   * @param {number} page
+   */
   handlePageChange(page) {
+    // 将传入的page设置为current
     this.setState({
       current: page,
     });
