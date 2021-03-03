@@ -16,6 +16,7 @@ function AppRouter() {
         <Route path="/" exact component={Archive} />
         <Route path="/links" component={Links} />
         <Route path="/about" component={About} />
+        <Route path="/archives/:group" component={Archive} />
         <Footer></Footer>
       </Router>
     </div>
