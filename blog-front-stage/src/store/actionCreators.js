@@ -6,12 +6,6 @@ import { GET_ARTICLE, GET_HEADER } from './actionTypes';
 
 const root = 'http://127.0.0.1:3000';
 
-const headers = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'content-type',
-  'Access-Control-Allow-Methods': 'DELETE,PUT,POST,GET,OPTIONS',
-};
-
 /**
  * 获取文章信息
  * @param {String} type
