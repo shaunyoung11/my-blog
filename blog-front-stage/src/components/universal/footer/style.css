@@ -1,4 +1,8 @@
 .footer {
   width: 100%;
-  background-color: green;
+  margin-top: 15vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 5vh;
 }
