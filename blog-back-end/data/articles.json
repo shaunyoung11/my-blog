@@ -8,7 +8,8 @@
     "group": "test",
     "archive": "测试文章",
     "comment": 0,
-    "cover": "https://img-blog.csdnimg.cn/20210213151050549.png"
+    "cover": "https://img-blog.csdnimg.cn/20210213151050549.png",
+    "cid": 0
   },
   {
     "title": "test2",
@@ -19,7 +20,8 @@
     "group": "life",
     "archive": "生活日常",
     "comment": 0,
-    "cover": "https://img-blog.csdnimg.cn/20210213151050549.png"
+    "cover": "https://img-blog.csdnimg.cn/20210213151050549.png",
+    "cid": 1
   },
   {
     "title": "test3",
@@ -30,6 +32,7 @@
     "group": "test",
     "archive": "测试文章",
     "comment": 0,
-    "cover": "https://img-blog.csdnimg.cn/20210213151050549.png"
+    "cover": "https://img-blog.csdnimg.cn/20210213151050549.png",
+    "cid": 2
   }
 ]

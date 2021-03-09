@@ -1,0 +1,14 @@
+[
+  {
+    "cid": 0,
+    "content": "<h1>this is post 0</h1>"
+  },
+  {
+    "cid": 1,
+    "content": "<h1>this is post 1</h1>"
+  },
+  {
+    "cid": 2,
+    "content": "<h1>this is post 2</h1>"
+  }
+]
