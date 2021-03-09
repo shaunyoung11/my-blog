@@ -63,15 +63,15 @@ router.get('/front/getHeader', function (req, res, next) {
 });
 
 router.get('/front/getPost/:cid', function (req, res, next) {
-  let cid = req.params.cid;
   model.connect((db) => {
+    let cid = parseInt(req.params.cid);
     db.collection('posts')
-      .findOne({ cid: cid })
+      .find({ cid: cid })
       .toArray((err, docs) => {
         if (err) {
           res.send(errMsg);
         } else {
-          res.json({
+          res.send({
             code: 200,
             msg: 'Succeed!',
             data: {
