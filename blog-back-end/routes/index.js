@@ -62,4 +62,25 @@ router.get('/front/getHeader', function (req, res, next) {
   });
 });
 
+router.get('/front/getPost/:cid', function (req, res, next) {
+  let cid = req.params.cid;
+  model.connect((db) => {
+    db.collection('posts')
+      .findOne({ cid: cid })
+      .toArray((err, docs) => {
+        if (err) {
+          res.send(errMsg);
+        } else {
+          res.json({
+            code: 200,
+            msg: 'Succeed!',
+            data: {
+              post: docs,
+            },
+          });
+        }
+      });
+  });
+});
+
 module.exports = router;
