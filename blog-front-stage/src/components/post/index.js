@@ -10,6 +10,8 @@ class Post extends Component {
       </div>
     );
   }
+
+  componentDidMount() {}
 }
 
 export default Post;
