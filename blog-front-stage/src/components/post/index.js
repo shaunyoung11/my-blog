@@ -1,17 +1,37 @@
 import React, { Component } from 'react';
+import store from '../../store';
+import { getPost } from '../../store/actionCreators';
 import './style.css';
 
 class Post extends Component {
-  state = {};
+  /**
+   * 构造函数
+   * @param {Object} props
+   */
+  constructor(props) {
+    super(props);
+    this.state = store.getState();
+    this.storeChange = this.storeChange.bind(this);
+    store.subscribe(this.storeChange);
+  }
+
   render() {
     return (
-      <div className="post">
-        <h1>Post {this.props.match.params.cid}</h1>
-      </div>
+      <div
+        className="post"
+        dangerouslySetInnerHTML={{ __html: this.state.post.content }}
+      ></div>
     );
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    const action = getPost(this.props.match.params.cid);
+    store.dispatch(action);
+  }
+
+  storeChange() {
+    this.setState(store.getState());
+  }
 }
 
 export default Post;

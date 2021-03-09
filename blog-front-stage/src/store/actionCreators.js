@@ -49,7 +49,7 @@ const getHeaderAction = (value) => ({
 });
 
 /**
- *
+ * 获取具体某篇文章的内容
  * @param {String} cid
  * @returns Function
  */
@@ -57,7 +57,7 @@ export const getPost = (cid) => {
   return (dispatch) => {
     axios.get('/front/getPost/' + cid).then((res) => {
       console.log(res);
-      const action = getPostAction(res.data.data.post);
+      const action = getPostAction(res.data.data.post[0]);
       dispatch(action);
     });
   };
