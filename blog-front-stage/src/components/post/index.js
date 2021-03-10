@@ -18,7 +18,7 @@ class Post extends Component {
   render() {
     return (
       <div
-        className="post"
+        className="post content-main"
         dangerouslySetInnerHTML={{ __html: this.state.post.content }}
       ></div>
     );

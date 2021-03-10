@@ -4,3 +4,7 @@ body {
   overflow-x: hidden;
   background-color: #eee !important;
 }
+
+.content-main {
+  min-height: calc(100vh - 50px - 30vh);
+}
