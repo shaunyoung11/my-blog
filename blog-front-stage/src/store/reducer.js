@@ -1,4 +1,10 @@
-import { GET_ARTICLE, GET_HEADER, GET_LINK, GET_POST } from './actionTypes';
+import {
+  GET_ABOUT,
+  GET_ARTICLE,
+  GET_HEADER,
+  GET_LINK,
+  GET_POST,
+} from './actionTypes';
 
 const defaultState = {
   showNav: false,
@@ -35,6 +41,11 @@ export default (state = defaultState, action) => {
   if (action.type === GET_LINK) {
     let newState = JSON.parse(JSON.stringify(state));
     newState.link = action.value;
+    return newState;
+  }
+  if (action.type === GET_ABOUT) {
+    let newState = JSON.parse(JSON.stringify(state));
+    newState.about = action.value;
     return newState;
   }
   return state;

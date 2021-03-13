@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { GET_ARTICLE, GET_HEADER, GET_POST, GET_LINK } from './actionTypes';
+import {
+  GET_ARTICLE,
+  GET_HEADER,
+  GET_POST,
+  GET_LINK,
+  GET_ABOUT,
+} from './actionTypes';
 
 // const root =
 //   'https://www.fastmock.site/mock/6ed5b8c00a26ca0e931dcba01b79b475/myblog';
@@ -84,5 +90,24 @@ export const getLink = () => {
 
 const getLinkAction = (value) => ({
   type: GET_LINK,
+  value,
+});
+
+/**
+ * 获取关于页面
+ * @returns Function
+ */
+export const getAbout = () => {
+  return (dispatch) => {
+    axios.get('/front/getAbout').then((res) => {
+      console.log(res);
+      const action = getAboutAction(res.data.data.about[0]);
+      dispatch(action);
+    });
+  };
+};
+
+const getAboutAction = (value) => ({
+  type: GET_ABOUT,
   value,
 });
