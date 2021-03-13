@@ -83,4 +83,24 @@ router.get('/front/getPost/:cid', function (req, res, next) {
   });
 });
 
+router.get('/front/getLink', function (req, res, next) {
+  model.connect((db) => {
+    db.collection('link')
+      .find()
+      .toArray((err, docs) => {
+        if (err) {
+          res.send(errMsg);
+        } else {
+          res.send({
+            code: 200,
+            msg: 'Succeed!',
+            data: {
+              link: docs,
+            },
+          });
+        }
+      });
+  });
+});
+
 module.exports = router;
