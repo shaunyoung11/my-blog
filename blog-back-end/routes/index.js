@@ -41,6 +41,9 @@ router.get(
   }
 );
 
+/**
+ * 获取网站头部和脚部信息
+ */
 router.get('/front/getHeader', function (req, res, next) {
   model.connect((db) => {
     let siteInfo = db
@@ -62,6 +65,10 @@ router.get('/front/getHeader', function (req, res, next) {
   });
 });
 
+/**
+ * 获取文章
+ * :cid - 文章id，存文章时按照现有文章最大id加1确定
+ */
 router.get('/front/getPost/:cid', function (req, res, next) {
   model.connect((db) => {
     let cid = parseInt(req.params.cid);
@@ -83,6 +90,9 @@ router.get('/front/getPost/:cid', function (req, res, next) {
   });
 });
 
+/**
+ * 获取友链页面数据
+ */
 router.get('/front/getLink', function (req, res, next) {
   model.connect((db) => {
     db.collection('link')
