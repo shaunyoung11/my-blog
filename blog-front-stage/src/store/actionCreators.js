@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ARTICLE, GET_HEADER, GET_POST } from './actionTypes';
+import { GET_ARTICLE, GET_HEADER, GET_POST, GET_LINK } from './actionTypes';
 
 // const root =
 //   'https://www.fastmock.site/mock/6ed5b8c00a26ca0e931dcba01b79b475/myblog';
@@ -65,5 +65,24 @@ export const getPost = (cid) => {
 
 const getPostAction = (value) => ({
   type: GET_POST,
+  value,
+});
+
+/**
+ * 获取友链列表
+ * @returns Function
+ */
+export const getLink = () => {
+  return (dispatch) => {
+    axios.get('/front/getLink').then((res) => {
+      console.log(res);
+      const action = getLinkAction(res.data.data.link);
+      dispatch(action);
+    });
+  };
+};
+
+const getLinkAction = (value) => ({
+  type: GET_LINK,
   value,
 });
