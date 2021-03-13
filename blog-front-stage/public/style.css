@@ -7,4 +7,8 @@ body {
 
 .content-main {
   min-height: calc(100vh - 50px - 30vh);
+  margin: 30px 20% 0 20%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 23px;
 }
