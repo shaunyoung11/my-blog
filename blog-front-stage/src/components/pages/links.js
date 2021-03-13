@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import store from '../../store';
 import { getLink } from '../../store/actionCreators';
+import './link.css';
 
 class Links extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Links extends Component {
             return (
               <a
                 href={item.url}
-                className="list-item"
+                className="link-list-item"
                 title={item.title}
                 key={item + index}
               >
