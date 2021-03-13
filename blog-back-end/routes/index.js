@@ -113,4 +113,24 @@ router.get('/front/getLink', function (req, res, next) {
   });
 });
 
+router.get('/front/getAbout', function (req, res, next) {
+  model.connect((db) => {
+    db.collection('about')
+      .find()
+      .toArray((err, docs) => {
+        if (err) {
+          res.send(errMsg);
+        } else {
+          res.send({
+            code: 200,
+            msg: 'Succeed!',
+            data: {
+              about: docs,
+            },
+          });
+        }
+      });
+  });
+});
+
 module.exports = router;
