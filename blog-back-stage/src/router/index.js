@@ -6,6 +6,7 @@ import Manage from '../components/article/Manage';
 import Overview from '../components/blog/Overview';
 import Links from '../components/page/Links';
 import About from '../components/page/About';
+import SubHome from '../components/global/SubHome';
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     name: 'Home',
     component: Home,
     children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: SubHome,
+      },
       {
         path: '/overview',
         name: 'OverView',
