@@ -1,5 +1,5 @@
 <template>
-  <el-menu router>
+  <el-menu router unique-opened>
     <el-submenu v-for="item in menuList" :key="item.title" :index="item.title">
       <template slot="title">
         <i :class="item.icon"></i>
@@ -51,12 +51,26 @@ export default {
             },
           ],
         },
+        {
+          icon: "el-icon-notebook-1",
+          title: "独立页面",
+          children: [
+            {
+              title: "友链",
+              icon: "el-icon-paperclip",
+              index: "/links",
+            },
+            {
+              title: "关于我",
+              icon: "el-icon-user",
+              index: "/about",
+            },
+          ],
+        },
       ],
     };
   },
 };
 </script>
 <style lang="scss" scoped>
-.menu {
-}
 </style>
