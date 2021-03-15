@@ -48,7 +48,9 @@ export default {
   height: calc(100vh - 100px);
   background-color: #fff;
 }
-
+.el-main {
+  height: calc(100vh - 100px);
+}
 .el-footer {
   height: 40px !important;
   display: flex;
