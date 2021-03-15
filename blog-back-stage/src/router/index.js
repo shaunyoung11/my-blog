@@ -13,11 +13,10 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/home',
-    name: 'Home',
     component: Home,
     children: [
       {
-        path: '/home',
+        path: '/',
         name: 'Home',
         component: SubHome,
       },
