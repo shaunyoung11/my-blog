@@ -1,30 +1,34 @@
 <template>
   <el-container>
     <el-header>
-      <globalheader />
+      <global-header />
     </el-header>
     <el-container>
       <el-aside>
-        <globalsidebar />
+        <global-sidebar />
       </el-aside>
       <el-main>
         <router-view></router-view>
       </el-main>
     </el-container>
-    <el-footer></el-footer>
+    <el-footer>
+      <global-footer />
+    </el-footer>
   </el-container>
 </template>
 
 <script>
-import globalheader from "../components/global/global-header";
-import globalsidebar from "../components/global/global-sidebar";
+import globalHeader from "../components/global/global-header";
+import globalSidebar from "../components/global/global-sidebar";
+import globalFooter from "../components/global/global-footer";
 export default {
   data() {
     return {};
   },
   components: {
-    globalheader,
-    globalsidebar,
+    globalHeader,
+    globalSidebar,
+    globalFooter,
   },
 };
 </script>
@@ -41,12 +45,19 @@ export default {
   }
 }
 .el-aside {
-  height: calc(100vh - 90px);
+  height: calc(100vh - 100px);
   background-color: #fff;
 }
 
 .el-footer {
-  height: 40px;
+  height: 40px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #fff;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }
 </style>
