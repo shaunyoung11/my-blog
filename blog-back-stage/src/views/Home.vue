@@ -41,7 +41,12 @@ export default {
   }
 }
 .el-aside {
-  height: 100vh;
+  height: calc(100vh - 90px);
+  background-color: #fff;
+}
+
+.el-footer {
+  height: 40px;
   background-color: #fff;
 }
 </style>

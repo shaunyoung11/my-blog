@@ -4,6 +4,8 @@ import Home from '../views/Home';
 import Write from '../components/article/Write';
 import Manage from '../components/article/Manage';
 import Overview from '../components/blog/Overview';
+import Links from '../components/page/Links';
+import About from '../components/page/About';
 
 Vue.use(VueRouter);
 
@@ -27,6 +29,16 @@ const routes = [
         path: '/manage',
         name: 'Manage',
         component: Manage,
+      },
+      {
+        path: '/links',
+        name: 'Links',
+        component: Links,
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: About,
       },
     ],
   },
