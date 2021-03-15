@@ -1,0 +1,55 @@
+[
+  {
+    "siteInfo": [
+      {
+        "label": "站点 Logo",
+        "name": "logo",
+        "placeholder": "请输入站点 logo 图片地址",
+        "value": "",
+        "btn": "修改"
+      },
+      {
+        "label": "站点名称",
+        "name": "name",
+        "placeholder": "请输入站点名称",
+        "value": "",
+        "btn": "修改"
+      },
+      {
+        "label": "首页地址",
+        "name": "url",
+        "placeholder": "请输入站点首页地址",
+        "value": "",
+        "btn": "修改"
+      },
+      {
+        "label": "站点简介",
+        "name": "intro",
+        "placeholder": "请输入站点简介",
+        "value": "",
+        "btn": "修改"
+      },
+      {
+        "label": "站点备案信息",
+        "name": "icp",
+        "placeholder": "请输入 icp 备案号",
+        "value": "",
+        "btn": "修改"
+      },
+      {
+        "label": "GitHub 地址",
+        "name": "github",
+        "placeholder": "请输入 GitHub 地址",
+        "value": "",
+        "btn": "修改"
+      },
+      {
+        "label": "邮箱地址",
+        "name": "mail",
+        "placeholder": "请输入邮箱地址",
+        "value": "",
+        "btn": "修改"
+      }
+    ]
+  }
+]
