@@ -37,7 +37,7 @@ export default {
   .header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 }
 .el-aside {
