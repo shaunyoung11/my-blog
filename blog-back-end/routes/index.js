@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var model = require('../model');
+const uat =
+  'fjadjfsajkfjasdjljgaoijoiwqetoijwqroiugoqndvnnczvxkuhefowjnldanfjhnfaksjoiaflknd';
 
 const errMsg = {
   code: 400,
@@ -56,9 +58,7 @@ router.get('/front/getHeader', function (req, res, next) {
           res.json({
             code: 200,
             msg: 'Succeed!',
-            data: {
-              siteInfo: docs,
-            },
+            data: docs,
           });
         }
       });
@@ -130,6 +130,26 @@ router.get('/front/getAbout', function (req, res, next) {
           });
         }
       });
+  });
+});
+
+// -----------------------------------------------------------------------
+
+router.post('/back/postInfo', function (req, res, next) {
+  model.connect((db) => {
+    if (req.headers.authorization !== uat) {
+      res.send(errMsg);
+    } else {
+      console.log(req.body);
+      db.collection('siteinfo').updateOne(
+        {},
+        { $set: { siteInfo: req.body.siteInfo } }
+      );
+      res.send({
+        code: 200,
+        msg: 'Succeed!',
+      });
+    }
   });
 });
 
