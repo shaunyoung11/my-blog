@@ -13,6 +13,7 @@ import {
   Avatar,
   Input,
   Button,
+  Notification,
 } from 'element-ui';
 
 Vue.use(Container);
@@ -28,3 +29,4 @@ Vue.use(FormItem);
 Vue.use(Avatar);
 Vue.use(Input);
 Vue.use(Button);
+Vue.prototype.$notify = Notification;
