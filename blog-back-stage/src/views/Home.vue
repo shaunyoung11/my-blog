@@ -4,7 +4,9 @@
       <globalheader />
     </el-header>
     <el-container>
-      <el-aside></el-aside>
+      <el-aside>
+        <globalsidebar />
+      </el-aside>
       <el-main>
         <router-view></router-view>
       </el-main>
@@ -15,12 +17,14 @@
 
 <script>
 import globalheader from "../components/global/global-header";
+import globalsidebar from "../components/global/global-sidebar";
 export default {
   data() {
     return {};
   },
   components: {
     globalheader,
+    globalsidebar,
   },
 };
 </script>
@@ -35,5 +39,9 @@ export default {
     align-items: center;
     justify-content: center;
   }
+}
+.el-aside {
+  height: 100vh;
+  background-color: #fff;
 }
 </style>
