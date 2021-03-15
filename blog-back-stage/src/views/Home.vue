@@ -1,6 +1,8 @@
 <template>
   <el-container>
-    <el-header></el-header>
+    <el-header>
+      <globalheader />
+    </el-header>
     <el-container>
       <el-aside></el-aside>
       <el-main>
@@ -17,8 +19,21 @@ export default {
   data() {
     return {};
   },
+  components: {
+    globalheader,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.el-header {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 </style>
