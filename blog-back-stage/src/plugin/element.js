@@ -14,6 +14,8 @@ import {
   Input,
   Button,
   Notification,
+  Table,
+  TableColumn,
 } from 'element-ui';
 
 Vue.use(Container);
@@ -29,4 +31,6 @@ Vue.use(FormItem);
 Vue.use(Avatar);
 Vue.use(Input);
 Vue.use(Button);
+Vue.use(Table);
+Vue.use(TableColumn);
 Vue.prototype.$notify = Notification;
