@@ -8,6 +8,11 @@ import {
   Menu,
   Submenu,
   MenuItem,
+  Form,
+  FormItem,
+  Avatar,
+  Input,
+  Button,
 } from 'element-ui';
 
 Vue.use(Container);
@@ -18,3 +23,8 @@ Vue.use(Footer);
 Vue.use(Menu);
 Vue.use(Submenu);
 Vue.use(MenuItem);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Avatar);
+Vue.use(Input);
+Vue.use(Button);

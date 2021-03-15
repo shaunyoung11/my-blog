@@ -1,5 +1,5 @@
 <template>
-  <el-menu router unique-opened>
+  <el-menu router unique-opened :default-active="$route.path">
     <el-submenu v-for="item in menuList" :key="item.title" :index="item.title">
       <template slot="title">
         <i :class="item.icon"></i>
@@ -23,6 +23,7 @@
 export default {
   data() {
     return {
+      // 菜单列表渲染项
       menuList: [
         {
           icon: "el-icon-menu",
