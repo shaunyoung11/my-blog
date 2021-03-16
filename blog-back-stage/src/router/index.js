@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Login from '../views/Login';
 import Home from '../views/Home';
 import Write from '../components/article/Write';
 import Manage from '../components/article/Manage';
@@ -11,6 +12,15 @@ import SubHome from '../components/global/SubHome';
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: '/',
+    redirect: '/login',
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
   {
     path: '/home',
     component: Home,
