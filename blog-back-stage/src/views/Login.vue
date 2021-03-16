@@ -33,6 +33,29 @@ export default {
   methods: {
     handleClickLogin() {
       console.log("login clicked");
+      this.$http
+        .post("/back/login", {
+          username: this.username,
+          password: this.password,
+        })
+        .then((res) => {
+          if (res.data.msg === "Succeed!") {
+            this.$router.push("/home");
+            this.$notify({
+              title: "成功",
+              message: "登录成功！",
+              type: "success",
+              duration: 1000,
+            });
+          } else {
+            this.$notify({
+              title: "失败",
+              message: "登录失败！",
+              type: "error",
+              duration: 1500,
+            });
+          }
+        });
     },
   },
 };
