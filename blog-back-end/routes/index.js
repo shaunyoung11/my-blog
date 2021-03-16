@@ -7,7 +7,7 @@ const uat =
 
 const errMsg = {
   code: 400,
-  msg: 'GET error!',
+  msg: 'error!',
 };
 
 /**
@@ -114,6 +114,9 @@ router.get('/front/getLink', function (req, res, next) {
   });
 });
 
+/**
+ * 获取关于页面的内容
+ */
 router.get('/front/getAbout', function (req, res, next) {
   model.connect((db) => {
     db.collection('about')
@@ -136,6 +139,9 @@ router.get('/front/getAbout', function (req, res, next) {
 
 // -----------------------------------------------------------------------
 
+/**
+ * 录入网站站点信息
+ */
 router.post('/back/postInfo', function (req, res, next) {
   model.connect((db) => {
     if (req.headers.authorization !== uat) {
@@ -154,6 +160,9 @@ router.post('/back/postInfo', function (req, res, next) {
   });
 });
 
+/**
+ * 修改友链信息列表，包括对友链的修改、删除、添加
+ */
 router.post('/back/changeLink', function (req, res, next) {
   model.connect((db) => {
     if (req.headers.authorization !== uat) {
@@ -209,6 +218,28 @@ router.post('/back/changeLink', function (req, res, next) {
         });
       }
     }
+  });
+});
+
+router.post('/back/login', function (req, res, next) {
+  model.connect((db) => {
+    db.collection('admin')
+      .find()
+      .toArray((err, docs) => {
+        console.log(docs);
+        console.log(req.body);
+        if (
+          docs[0].username === req.body.username &&
+          docs[0].password === req.body.password
+        ) {
+          res.send({
+            code: 200,
+            msg: 'Succeed!',
+          });
+        } else {
+          res.send(errMsg);
+        }
+      });
   });
 });
 
