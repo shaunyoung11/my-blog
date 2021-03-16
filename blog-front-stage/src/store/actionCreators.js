@@ -43,7 +43,7 @@ export const getHeader = () => {
   return (dispatch) => {
     axios.get('/front/getHeader').then((res) => {
       console.log(res);
-      const action = getHeaderAction(res.data.data.siteInfo[0]);
+      const action = getHeaderAction(res.data.data[0].siteInfo);
       dispatch(action);
     });
   };
