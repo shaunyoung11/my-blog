@@ -12,15 +12,18 @@ import SubHome from '../components/global/SubHome';
 Vue.use(VueRouter);
 
 const routes = [
+  // 根地址重定向
   {
     path: '/',
     redirect: '/login',
   },
+  // 登录页路由
   {
     path: '/login',
     name: 'Login',
     component: Login,
   },
+  // 管理后台主页
   {
     path: '/home',
     component: Home,
