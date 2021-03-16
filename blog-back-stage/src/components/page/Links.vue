@@ -34,12 +34,17 @@
             v-if="scope.row._id"
             type="primary"
             @click="handleChangeLink(scope)"
+            size="small"
             >修改</el-button
           >
-          <el-button v-else type="primary" @click="handleAddLink(scope)"
+          <el-button
+            v-else
+            type="primary"
+            @click="handleAddLink(scope)"
+            size="small"
             >确定</el-button
           >
-          <el-button type="danger" @click="handleDelLink(scope)"
+          <el-button type="danger" @click="handleDelLink(scope)" size="small"
             >删除</el-button
           >
         </template>
