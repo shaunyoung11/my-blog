@@ -1,3 +1,4 @@
+const { ObjectId } = require('bson');
 var express = require('express');
 var router = express.Router();
 var model = require('../model');
@@ -149,6 +150,64 @@ router.post('/back/postInfo', function (req, res, next) {
         code: 200,
         msg: 'Succeed!',
       });
+    }
+  });
+});
+
+router.post('/back/changeLink', function (req, res, next) {
+  model.connect((db) => {
+    if (req.headers.authorization !== uat) {
+      res.send(errMsg);
+    } else {
+      console.log(req.body);
+      if (req.body.method === 'update') {
+        db.collection('link').updateOne(
+          { _id: ObjectId(req.body.link._id) },
+          {
+            $set: {
+              logo: req.body.link.logo,
+              name: req.body.link.name,
+              title: req.body.link.title,
+              url: req.body.link.url,
+            },
+          },
+          function (err) {
+            if (err) {
+              res.send(errMsg);
+            } else {
+              res.send({
+                code: 200,
+                msg: 'Succeed!',
+              });
+            }
+          }
+        );
+      } else if (req.body.method === 'del') {
+        db.collection('link').deleteOne(
+          { _id: ObjectId(req.body.link._id) },
+          function (err) {
+            if (err) {
+              res.send(errMsg);
+            } else {
+              res.send({
+                code: 200,
+                msg: 'Succeed!',
+              });
+            }
+          }
+        );
+      } else if (req.body.method === 'add') {
+        db.collection('link').insertOne(req.body.link, function (err) {
+          if (err) {
+            res.send(errMsg);
+          } else {
+            res.send({
+              code: 200,
+              msg: 'Succeed!',
+            });
+          }
+        });
+      }
     }
   });
 });
