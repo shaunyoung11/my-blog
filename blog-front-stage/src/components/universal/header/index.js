@@ -19,10 +19,17 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <a href={this.state.siteInfo.url} className="site-name">
-          {this.state.siteInfo.name}
+        <a
+          href={this.state.siteInfo[2] && this.state.siteInfo[2].value}
+          className="site-name"
+        >
+          {this.state.siteInfo[1] && this.state.siteInfo[1].value}
         </a>
-        <img src={this.state.siteInfo.logo} alt="" className="site-logo"></img>
+        <img
+          src={this.state.siteInfo[0] && this.state.siteInfo[0].value}
+          alt={this.state.siteInfo[1] && this.state.siteInfo[1].value}
+          className="site-logo"
+        ></img>
         <div className="nav-burger" onClick={this.handleBurgerClick}>
           <div
             className={

@@ -10,7 +10,7 @@ const defaultState = {
   showNav: false,
   current: 1,
   pageSize: 9,
-  siteInfo: {},
+  siteInfo: [],
   articles: [],
   post: {
     content: '',
