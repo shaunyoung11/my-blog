@@ -13,7 +13,9 @@ class About extends Component {
     return (
       <div
         className="content-main"
-        dangerouslySetInnerHTML={{ __html: this.state.about.content }}
+        dangerouslySetInnerHTML={{
+          __html: this.state.about && this.state.about.content,
+        }}
       ></div>
     );
   }
