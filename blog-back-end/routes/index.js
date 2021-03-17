@@ -243,4 +243,24 @@ router.post('/back/login', function (req, res, next) {
   });
 });
 
+router.post('/back/postAbout', function (req, res, next) {
+  model.connect((db) => {
+    console.log(req.body);
+    db.collection('about').update(
+      { _id: ObjectId(req.body.about._id) },
+      { $set: { content: req.body.about.content } },
+      function (err) {
+        if (err) {
+          res.send(errMsg);
+        } else {
+          res.send({
+            code: 200,
+            msg: 'Succeed!',
+          });
+        }
+      }
+    );
+  });
+});
+
 module.exports = router;
