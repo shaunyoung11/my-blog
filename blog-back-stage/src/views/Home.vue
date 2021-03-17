@@ -47,6 +47,7 @@ export default {
 .el-aside {
   height: calc(100vh - 100px);
   background-color: #fff;
+  width: fit-content !important;
 }
 .el-main {
   height: calc(100vh - 100px);
