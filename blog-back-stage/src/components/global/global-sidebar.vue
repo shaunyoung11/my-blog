@@ -1,5 +1,17 @@
 <template>
-  <el-menu router unique-opened :default-active="$route.path">
+  <el-menu
+    router
+    unique-opened
+    :default-active="$route.path"
+    :collapse="isCollapse"
+    :collapse-transition="false"
+  >
+    <el-button circle class="fold-btn" @click="isCollapse = !isCollapse">
+      <template>
+        <i class="el-icon-d-arrow-right" v-if="isCollapse === true"></i>
+        <i class="el-icon-d-arrow-left" v-else></i>
+      </template>
+    </el-button>
     <el-submenu v-for="item in menuList" :key="item.title" :index="item.title">
       <template slot="title">
         <i :class="item.icon"></i>
@@ -69,9 +81,15 @@ export default {
           ],
         },
       ],
+      isCollapse: true,
     };
   },
 };
 </script>
 <style lang="scss" scoped>
+.fold-btn {
+  transform: translateX(-50%);
+  left: 50%;
+  position: relative;
+}
 </style>
