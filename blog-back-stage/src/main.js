@@ -7,7 +7,7 @@ import './plugin/element';
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
-axios.defaults.baseURL = 'http://192.168.3.48:3000';
+axios.defaults.baseURL = 'http://localhost:3000';
 axios.interceptors.request.use((config) => {
   console.log(config);
   config.headers.Authorization = window.sessionStorage.getItem('uat');
