@@ -40,6 +40,7 @@ export default {
         })
         .then((res) => {
           if (res.data.msg === "Succeed!") {
+            window.sessionStorage.setItem("uat", res.data.data.uat);
             this.$router.push("/home");
             this.$notify({
               title: "成功",
