@@ -7,8 +7,19 @@
     ></el-input>
     <el-input
       type="textarea"
-      v-model="article.content"
+      v-model="content"
       :autosize="{ minRows: 20 }"
+    ></el-input>
+    <el-input
+      type="text"
+      placeholder="请输入文章摘要"
+      v-model="article.abstract"
+    ></el-input>
+    <el-input
+      type="text"
+      placeholder="请输入文章作者"
+      autocomplete="on"
+      v-model="article.author"
     ></el-input>
     <el-button @click="handlePostArticle">确认</el-button>
   </div>
@@ -20,8 +31,14 @@ export default {
     return {
       article: {
         title: "",
-        content: "",
+        abstrac: "",
+        author: "",
+        date: "",
+        view: 0,
+        group: "",
+        comment: 0,
       },
+      content: "",
     };
   },
   methods: {
