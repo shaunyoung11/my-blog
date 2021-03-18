@@ -16,6 +16,7 @@ import {
   Notification,
   Table,
   TableColumn,
+  DatePicker,
 } from 'element-ui';
 
 Vue.use(Container);
@@ -33,4 +34,5 @@ Vue.use(Input);
 Vue.use(Button);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(DatePicker);
 Vue.prototype.$notify = Notification;
