@@ -21,6 +21,19 @@
       autocomplete="on"
       v-model="article.author"
     ></el-input>
+    <el-input
+      type="url"
+      placeholder="请输入封面图片地址"
+      v-model="article.cover"
+    ></el-input>
+    <el-date-picker
+      v-model="article.date"
+      type="date"
+      format="yyyy 年 MM 月 dd 日"
+      value-format="yyyy-MM-dd"
+      placeholder="请选择日期"
+      :picker-options="options"
+    ></el-date-picker>
     <el-button @click="handlePostArticle">确认</el-button>
   </div>
 </template>
@@ -37,15 +50,23 @@ export default {
         view: 0,
         group: "",
         comment: 0,
+        cover: "",
       },
       content: "",
+      options: {
+        disabledDate(time) {
+          return time.getTime() > Date.now();
+        },
+      },
     };
   },
   methods: {
-    handlePostArticle() {},
+    handlePostArticle() {
+      console.log(this.article);
+    },
   },
   mounted() {
-    if (this.$props.cid) {
+    if (this.$props && this.$props.cid) {
       this.$http.get("/front/getPost").then((res) => {
         console.log(res);
       });
