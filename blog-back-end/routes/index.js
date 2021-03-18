@@ -164,12 +164,14 @@ router.post('/back/postInfo', function (req, res, next) {
  * 修改友链信息列表，包括对友链的修改、删除、添加
  */
 router.post('/back/changeLink', function (req, res, next) {
+  console.log(req.body);
   model.connect((db) => {
     if (req.headers.authorization !== uat) {
       res.send(errMsg);
     } else {
       console.log(req.body);
       if (req.body.method === 'update') {
+        console.log('update');
         db.collection('link').updateOne(
           { _id: ObjectId(req.body.link._id) },
           {
@@ -192,6 +194,7 @@ router.post('/back/changeLink', function (req, res, next) {
           }
         );
       } else if (req.body.method === 'del') {
+        console.log('del');
         db.collection('link').deleteOne(
           { _id: ObjectId(req.body.link._id) },
           function (err) {
@@ -206,6 +209,7 @@ router.post('/back/changeLink', function (req, res, next) {
           }
         );
       } else if (req.body.method === 'add') {
+        console.log('11111');
         db.collection('link').insertOne(req.body.link, function (err) {
           if (err) {
             res.send(errMsg);
@@ -235,6 +239,9 @@ router.post('/back/login', function (req, res, next) {
           res.send({
             code: 200,
             msg: 'Succeed!',
+            data: {
+              uat: uat,
+            },
           });
         } else {
           res.send(errMsg);
