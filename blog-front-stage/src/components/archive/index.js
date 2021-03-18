@@ -58,9 +58,7 @@ class Archive extends Component {
                     <div className="detail">
                       {/* 文章分类 */}
                       <div className="group">
-                        <Link to={'/archives/' + item.group}>
-                          {item.archive}
-                        </Link>
+                        <Link to={'/archives/' + item.group}>{item.group}</Link>
                       </div>
                       {/* 浏览量 */}
                       <div className="view">{item.view}</div>
