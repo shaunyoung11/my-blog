@@ -230,26 +230,30 @@ router.post('/back/changeLink', function (req, res, next) {
  */
 router.post('/back/login', function (req, res, next) {
   model.connect((db) => {
-    db.collection('admin')
-      .find()
-      .toArray((err, docs) => {
-        console.log(docs);
-        console.log(req.body);
-        if (
-          docs[0].username === req.body.username &&
-          docs[0].password === req.body.password
-        ) {
-          res.send({
-            code: 200,
-            msg: 'Succeed!',
-            data: {
-              uat: uat,
-            },
-          });
-        } else {
-          res.send(errMsg);
-        }
-      });
+    if (req.headers.authorization !== uat) {
+      res.send(errMsg);
+    } else {
+      db.collection('admin')
+        .find()
+        .toArray((err, docs) => {
+          console.log(docs);
+          console.log(req.body);
+          if (
+            docs[0].username === req.body.username &&
+            docs[0].password === req.body.password
+          ) {
+            res.send({
+              code: 200,
+              msg: 'Succeed!',
+              data: {
+                uat: uat,
+              },
+            });
+          } else {
+            res.send(errMsg);
+          }
+        });
+    }
   });
 });
 
@@ -257,23 +261,40 @@ router.post('/back/login', function (req, res, next) {
  * 后台关于页面修改接口
  */
 router.post('/back/postAbout', function (req, res, next) {
-  model.connect((db) => {
-    console.log(req.body);
-    db.collection('about').update(
-      { _id: ObjectId(req.body.about._id) },
-      { $set: { content: req.body.about.content } },
-      function (err) {
-        if (err) {
-          res.send(errMsg);
-        } else {
-          res.send({
-            code: 200,
-            msg: 'Succeed!',
-          });
+  if (req.headers.authorization !== uat) {
+    res.send(errMsg);
+  } else {
+    model.connect((db) => {
+      console.log(req.body);
+      db.collection('about').update(
+        { _id: ObjectId(req.body.about._id) },
+        { $set: { content: req.body.about.content } },
+        function (err) {
+          if (err) {
+            res.send(errMsg);
+          } else {
+            res.send({
+              code: 200,
+              msg: 'Succeed!',
+            });
+          }
         }
-      }
-    );
-  });
+      );
+    });
+  }
+});
+
+router.post('/back/postArticle', function (req, res, next) {
+  if (req.headers.authorization !== uat) {
+    res.send(errMsg);
+  } else {
+    model.connect((db) => {
+      db.collection('articles')
+        .find()
+        .limit(1)
+        .toArray((err, docs) => {});
+    });
+  }
 });
 
 module.exports = router;
