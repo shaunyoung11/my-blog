@@ -225,6 +225,9 @@ router.post('/back/changeLink', function (req, res, next) {
   });
 });
 
+/**
+ * 后台登录接口
+ */
 router.post('/back/login', function (req, res, next) {
   model.connect((db) => {
     db.collection('admin')
@@ -250,6 +253,9 @@ router.post('/back/login', function (req, res, next) {
   });
 });
 
+/**
+ * 后台关于页面修改接口
+ */
 router.post('/back/postAbout', function (req, res, next) {
   model.connect((db) => {
     console.log(req.body);
