@@ -26,6 +26,11 @@
       placeholder="请输入封面图片地址"
       v-model="article.cover"
     ></el-input>
+    <el-input
+      type="group"
+      placeholder="请输入分组标签名称"
+      v-model="article.group"
+    ></el-input>
     <el-date-picker
       v-model="article.date"
       type="date"
@@ -44,7 +49,7 @@ export default {
     return {
       article: {
         title: "",
-        abstrac: "",
+        abstract: "",
         author: "",
         date: "",
         view: 0,
