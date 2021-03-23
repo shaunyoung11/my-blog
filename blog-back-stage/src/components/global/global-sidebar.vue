@@ -92,4 +92,7 @@ export default {
   left: 50%;
   position: relative;
 }
+.el-menu:not(.el-menu--collapse) {
+  min-width: 240px;
+}
 </style>
