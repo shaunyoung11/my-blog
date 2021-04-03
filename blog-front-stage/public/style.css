@@ -5,6 +5,9 @@ body {
   background-color: var(--gray-100) !important;
   color: var(--gray-900-h1) !important;
 }
+.ant-layout {
+  min-height: 101vh !important;
+}
 .ant-layout-header {
   padding: 0 !important;
   height: fit-content;
@@ -13,6 +16,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.ant-layout-footer {
+  padding: 0 !important;
 }
 
 :root {
