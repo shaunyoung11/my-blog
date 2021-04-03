@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Archive from '../components/archive';
-import About from '../components/pages/about';
-import Links from '../components/pages/links';
-import Post from '../components/post';
+import Archive from '../pages/index';
+import About from '../pages/about/about';
+import Links from '../pages/link/link';
+import Post from '../pages/post/post';
 import Footer from '../components/universal/footer';
 import Header from '../components/universal/header';
 
