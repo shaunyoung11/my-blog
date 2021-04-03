@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import store from '../../store';
 import { getArticle } from '../../store/actionCreators';
-import { Pagination } from 'antd';
-import { Link } from 'react-router-dom';
-import './style.css';
+import Scard from '../../components/scard';
+import './style.scss';
 
 class Archive extends Component {
   constructor(props) {
@@ -26,58 +25,42 @@ class Archive extends Component {
   render() {
     return (
       <div className="page">
-        <div className="list">
-          {this.state.articles.map((item, index) => {
-            if (
-              index >= (this.state.current - 1) * this.state.pageSize &&
-              index < this.state.current * this.state.pageSize
-            ) {
-              return (
-                // 每个文章卡片
-                <div className="list-item" key={index}>
-                  {/* 背景图片，具有模糊效果 */}
-                  <div className="backdrop">
-                    <img src={item.cover} alt="" />
-                  </div>
-                  {/* 文章头图，无模糊效果 */}
-                  <Link to={'/post/' + item.cid}>
-                    <div className="img">
-                      <div className="abstract">
-                        <p>{item.abstract}</p>
-                      </div>
-                      <img src={item.cover} alt="" />
-                    </div>
-                  </Link>
-                  {/* 文章信息 */}
-                  <div className="info">
-                    {/* 标题 */}
-                    <Link to={'/post/' + item.cid}>
-                      <h2 className="title">{item.title}</h2>
-                    </Link>
-                    {/* 详细信息 */}
-                    <div className="detail">
-                      {/* 文章分类 */}
-                      <div className="group">
-                        <Link to={'/archives/' + item.group}>{item.group}</Link>
-                      </div>
-                      {/* 浏览量 */}
-                      <div className="view">{item.view}</div>
-                    </div>
-                  </div>
-                </div>
-              );
-            } else {
-              return null;
-            }
-          })}
-        </div>
-        <Pagination
-          current={this.state.current}
-          pageSize={this.state.pageSize}
-          total={this.state.articles.length}
-          onChange={this.handlePageChange}
-          hideOnSinglePage={true}
-        />
+        <Scard
+          className="item"
+          title="1111"
+          abstract="22222"
+          group="333"
+          author="小扬Shaun"
+          avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
+          cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
+        ></Scard>
+        <Scard
+          className="item"
+          title="1111"
+          abstract="22222"
+          group="333"
+          author="小扬Shaun"
+          avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
+          cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
+        ></Scard>
+        <Scard
+          className="item"
+          title="1111"
+          abstract="22222"
+          group="333"
+          author="小扬Shaun"
+          avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
+          cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
+        ></Scard>
+        <Scard
+          className="item"
+          title="1111"
+          abstract="22222"
+          group="333"
+          author="小扬Shaun"
+          avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
+          cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
+        ></Scard>
       </div>
     );
   }
