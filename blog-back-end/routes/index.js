@@ -2,6 +2,7 @@ const { ObjectId } = require('bson');
 var express = require('express');
 var router = express.Router();
 var model = require('../model');
+var markdown = require('markdown').markdown;
 const uat =
   'fjadjfsajkfjasdjljgaoijoiwqetoijwqroiugoqndvnnczvxkuhefowjnldanfjhnfaksjoiaflknd';
 
@@ -230,30 +231,26 @@ router.post('/back/changeLink', function (req, res, next) {
  */
 router.post('/back/login', function (req, res, next) {
   model.connect((db) => {
-    if (req.headers.authorization !== uat) {
-      res.send(errMsg);
-    } else {
-      db.collection('admin')
-        .find()
-        .toArray((err, docs) => {
-          console.log(docs);
-          console.log(req.body);
-          if (
-            docs[0].username === req.body.username &&
-            docs[0].password === req.body.password
-          ) {
-            res.send({
-              code: 200,
-              msg: 'Succeed!',
-              data: {
-                uat: uat,
-              },
-            });
-          } else {
-            res.send(errMsg);
-          }
-        });
-    }
+    db.collection('admin')
+      .find()
+      .toArray((err, docs) => {
+        console.log(docs);
+        console.log(req.body);
+        if (
+          docs[0].username === req.body.username &&
+          docs[0].password === req.body.password
+        ) {
+          res.send({
+            code: 200,
+            msg: 'Succeed!',
+            data: {
+              uat: uat,
+            },
+          });
+        } else {
+          res.send(errMsg);
+        }
+      });
   });
 });
 
@@ -292,7 +289,24 @@ router.post('/back/postArticle', function (req, res, next) {
       db.collection('articles')
         .find()
         .limit(1)
-        .toArray((err, docs) => {});
+        .toArray((err, docs) => {
+          console.log(docs);
+          req.body.cid = ((docs[0] && docs[0].cid) || -1) + 1;
+          req.body.contentHTML = markdown.toHTML(req.body.content);
+          model.connect((db) => {
+            db.collection('articles').insertOne(req.body, function (err) {
+              if (err) {
+                console.log(err);
+                res.send(errMsg);
+              } else {
+                res.send({
+                  code: 200,
+                  msg: 'Succeed!',
+                });
+              }
+            });
+          });
+        });
     });
   }
 });
