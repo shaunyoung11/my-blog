@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'antd';
 import store from '../../../store';
 import 'antd/dist/antd.css';
-import './style.css';
+import './style.scss';
 import { getHeader } from '../../../store/actionCreators';
 
 class Header extends Component {
