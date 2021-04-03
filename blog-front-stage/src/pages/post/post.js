@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import store from '../../store';
 import { getPost } from '../../store/actionCreators';
-import './style.css';
+import './post.css';
 
 class Post extends Component {
   /**
