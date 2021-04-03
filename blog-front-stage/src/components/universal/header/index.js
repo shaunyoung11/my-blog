@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Avatar, Button } from 'antd';
+import { Avatar, Button, Tag } from 'antd';
+import { LinkedinOutlined, MailOutlined } from '@ant-design/icons';
 import store from '../../../store';
 import { getHeader } from '../../../store/actionCreators';
 import './style.scss';
@@ -67,7 +68,14 @@ class Header extends Component {
             <Link to="/about">关于我</Link>
           </Button>
         </div>
-        <div className="contact"></div>
+        <div className="contact">
+          <Tag icon={<LinkedinOutlined />} color="#55acee">
+            LinkedIn
+          </Tag>
+          <Tag icon={<MailOutlined />} color="green">
+            email
+          </Tag>
+        </div>
       </div>
     );
   }
