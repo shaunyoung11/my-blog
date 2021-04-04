@@ -1,6 +1,8 @@
+import Avatar from 'antd/lib/avatar/avatar';
 import React, { Component } from 'react';
 import store from '../../store';
 import { getAbout } from '../../store/actionCreators';
+import './style.scss';
 
 class About extends Component {
   constructor(props) {
@@ -11,12 +13,19 @@ class About extends Component {
   }
   render() {
     return (
-      <div
-        className="content-main"
-        dangerouslySetInnerHTML={{
-          __html: this.state.about && this.state.about.content,
-        }}
-      ></div>
+      <div className="about">
+        <Avatar
+          className="avatar"
+          src="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
+          size={125}
+        ></Avatar>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{
+            __html: this.state.about && this.state.about.content,
+          }}
+        ></div>
+      </div>
     );
   }
   componentDidMount() {
