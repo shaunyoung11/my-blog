@@ -1,5 +1,6 @@
 import { Avatar } from 'antd';
 import React, { Component } from 'react';
+import Hel from '../../components/universal/helmet';
 import store from '../../store';
 import { getAbout } from '../../store/actionCreators';
 import './style.scss';
@@ -14,6 +15,7 @@ class About extends Component {
   render() {
     return (
       <div className="about">
+        <Hel title="关于我"></Hel>
         <Avatar
           className="avatar"
           src="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"

@@ -3,6 +3,7 @@ import store from '../../store';
 import { getArticle } from '../../store/actionCreators';
 import Scard from '../../components/scard';
 import './style.scss';
+import Hel from '../../components/universal/helmet';
 
 class Archive extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class Archive extends Component {
   render() {
     return (
       <div className="page">
+        <Hel></Hel>
         {this.state.articles.map((item, value) => {
           return (
             <Scard
