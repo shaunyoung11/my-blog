@@ -21,15 +21,12 @@ class Header extends Component {
       <div className="header">
         <div className="info">
           <Avatar
-            src={this.state.siteInfo[0] && this.state.siteInfo[0].value}
-            alt={this.state.siteInfo[1] && this.state.siteInfo[1].value}
+            src={this.state.siteLogo}
+            alt={this.state.siteName}
             className="logo"
           />
-          <a
-            href={this.state.siteInfo[2] && this.state.siteInfo[2].value}
-            className="name"
-          >
-            {this.state.siteInfo[1] && this.state.siteInfo[1].value}
+          <a href={this.state.siteUrl} className="name">
+            {this.state.siteName}
           </a>
         </div>
         <div className="nav">
@@ -74,7 +71,7 @@ class Header extends Component {
               LinkedIn
             </Tag>
           </a>
-          <a className="link" href="mailto:shaunyoung11@163.com">
+          <a className="link" href={'mailto:' + this.state.siteMail}>
             <Tag icon={<MailOutlined />} color="green">
               email
             </Tag>

@@ -23,6 +23,7 @@ function Scard(props) {
         </Typography>
         <div className="info">
           <Avatar className="avatar" src={props.avatar}></Avatar>
+          <Text className="author">{props.author}</Text>
           <Text className="date">{props.date}</Text>
         </div>
       </div>

@@ -32,6 +32,9 @@ class Post extends Component {
         <Typography className="info">
           <Title>{this.state.post.title}</Title>
           <div className="detail">
+            <Tag icon={<IdcardOutlined />} color="red">
+              {this.state.siteName}
+            </Tag>
             <Tag icon={<CalendarOutlined />} color="geekblue">
               {this.state.post.date}
             </Tag>

@@ -34,8 +34,9 @@ class Archive extends Component {
               abstract={item.abstract}
               group={item.group}
               date={item.date}
-              avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
+              avatar={this.state.siteLogo}
               cover={item.cover}
+              author={this.state.siteName}
             ></Scard>
           );
         })}
