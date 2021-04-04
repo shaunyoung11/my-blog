@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from '../../../store';
-import './style.css';
+import './style.scss';
 
 class Footer extends Component {
   constructor(props) {

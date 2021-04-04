@@ -8,9 +8,7 @@ function Slink(props) {
     <a href={props.link} className={'s-link ' + props.className}>
       <Card bordered={false}>
         <Meta
-          avatar={
-            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-          }
+          avatar={<Avatar src={props.avatar} />}
           title={props.name}
           description={props.description}
         />

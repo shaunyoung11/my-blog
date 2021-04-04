@@ -19,9 +19,10 @@ class Links extends Component {
             return (
               <Slink
                 className="item"
-                name="title"
-                link="https://shaunyoung.cn"
-                description="description"
+                name={item.name}
+                link={item.url}
+                avatar={item.logo}
+                description={item.title}
               ></Slink>
             );
           })}
