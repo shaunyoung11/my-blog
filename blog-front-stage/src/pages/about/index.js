@@ -1,4 +1,4 @@
-import Avatar from 'antd/lib/avatar/avatar';
+import { Avatar } from 'antd';
 import React, { Component } from 'react';
 import store from '../../store';
 import { getAbout } from '../../store/actionCreators';

@@ -16,10 +16,7 @@ function AppRouter() {
       <Router>
         <Layout>
           <Header>
-            <MyHeader
-              logoUrl="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
-              siteName="小扬Shaun"
-            />
+            <MyHeader />
           </Header>
           <Content>
             <Route path="/" exact component={Archive} />
