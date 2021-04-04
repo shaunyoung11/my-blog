@@ -22,7 +22,7 @@ class About extends Component {
         <div
           className="content"
           dangerouslySetInnerHTML={{
-            __html: this.state.about && this.state.about.content,
+            __html: this.state.about && this.state.about.contentHTML,
           }}
         ></div>
       </div>
