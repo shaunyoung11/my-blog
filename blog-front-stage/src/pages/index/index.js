@@ -25,42 +25,20 @@ class Archive extends Component {
   render() {
     return (
       <div className="page">
-        <Scard
-          className="item"
-          title="1111"
-          abstract="22222"
-          group="333"
-          author="小扬Shaun"
-          avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
-          cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
-        ></Scard>
-        <Scard
-          className="item"
-          title="1111"
-          abstract="22222"
-          group="333"
-          author="小扬Shaun"
-          avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
-          cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
-        ></Scard>
-        <Scard
-          className="item"
-          title="1111"
-          abstract="22222"
-          group="333"
-          author="小扬Shaun"
-          avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
-          cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
-        ></Scard>
-        <Scard
-          className="item"
-          title="1111"
-          abstract="22222"
-          group="333"
-          author="小扬Shaun"
-          avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
-          cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
-        ></Scard>
+        {this.state.articles.map((item, value) => {
+          return (
+            <Scard
+              className="item"
+              cid={item.cid}
+              title={item.title}
+              abstract={item.abstract}
+              group={item.group}
+              author={item.author}
+              avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
+              cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
+            ></Scard>
+          );
+        })}
       </div>
     );
   }

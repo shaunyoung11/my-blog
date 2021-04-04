@@ -1,12 +1,13 @@
 import { Avatar, Image, Tag, Typography } from 'antd';
 import { FolderOpenOutlined } from '@ant-design/icons';
 import './style.scss';
+import { Link } from 'react-router-dom';
 
 const { Title, Text } = Typography;
 
 function Scard(props) {
   return (
-    <div className={'s-card ' + props.className}>
+    <Link className={'s-card ' + props.className} to={'/post/' + props.cid}>
       <Image preview={false} className="cover" src={props.cover} />
       <div className="content">
         <Typography>
@@ -25,7 +26,7 @@ function Scard(props) {
           <Text className="author">{props.author}</Text>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
