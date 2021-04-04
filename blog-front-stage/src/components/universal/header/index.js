@@ -69,12 +69,16 @@ class Header extends Component {
           </Button>
         </div>
         <div className="contact">
-          <Tag icon={<LinkedinOutlined />} color="#55acee">
-            LinkedIn
-          </Tag>
-          <Tag icon={<MailOutlined />} color="green">
-            email
-          </Tag>
+          <a className="link" href="">
+            <Tag icon={<LinkedinOutlined />} color="#55acee">
+              LinkedIn
+            </Tag>
+          </a>
+          <a className="link" href="mailto:shaunyoung11@163.com">
+            <Tag icon={<MailOutlined />} color="green">
+              email
+            </Tag>
+          </a>
         </div>
       </div>
     );

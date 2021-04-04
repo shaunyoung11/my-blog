@@ -25,7 +25,15 @@
   }
   .contact {
     display: flex;
+    align-items: center;
     justify-self: end;
-    padding-right: 36px;
+    padding-right: 28px;
+    line-height: unset;
+    .link {
+      margin-right: 8px;
+      .ant-tag {
+        margin: 0;
+      }
+    }
   }
 }

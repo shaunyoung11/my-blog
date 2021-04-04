@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import Slink from '../../components/slink';
 import store from '../../store';
 import { getLink } from '../../store/actionCreators';
-import './link.css';
+import './style.scss';
 
 class Links extends Component {
   constructor(props) {
@@ -16,15 +17,12 @@ class Links extends Component {
         <div className="link-list">
           {this.state.link.map((item, index) => {
             return (
-              <a
-                href={item.url}
-                className="link-list-item"
-                title={item.title}
-                key={item + index}
-              >
-                <img className="item-logo" src={item.logo} alt={item.title} />
-                <p className="item-name">{item.name}</p>
-              </a>
+              <Slink
+                className="item"
+                name="title"
+                link="https://shaunyoung.cn"
+                description="description"
+              ></Slink>
             );
           })}
         </div>

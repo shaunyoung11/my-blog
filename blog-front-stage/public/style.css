@@ -28,6 +28,8 @@ body {
   --gray-500-info: #8f959e;
   --gray-600-h2: #646a73;
   --gray-900-h1: #1f2329;
+  --content-width-large: 60%;
+  --box-shadow: rgba(200, 200, 200, 0.2);
 }
 
 ::-webkit-scrollbar {

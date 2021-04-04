@@ -1,6 +1,10 @@
 .s-card {
   display: flex;
   justify-content: space-between;
+  background-color: rgba(245, 245, 250, 1);
+  padding: 12px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px var(--box-shadow);
   .ant-image {
     flex: 50%;
     .cover {
@@ -8,8 +12,9 @@
       height: 100%;
       width: 100%;
     }
-    border-radius: 36px;
+    border-radius: 20px;
     overflow: hidden;
+    box-shadow: 0 4px 8px var(--box-shadow);
   }
   .content {
     flex: 50%;
