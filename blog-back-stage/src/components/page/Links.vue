@@ -1,22 +1,22 @@
 <template>
   <div class="links">
     <el-table fit :data="link" stripe>
-      <el-table-column prop="name" label="友链名称">
+      <el-table-column prop="name" label="友链名称" min-width="200px">
         <template slot-scope="scope">
           <el-input v-model="scope.row.name"></el-input>
         </template>
       </el-table-column>
-      <el-table-column prop="url" label="友链地址">
+      <el-table-column prop="url" label="友链地址" min-width="200px">
         <template slot-scope="scope">
           <el-input v-model="scope.row.url"></el-input>
         </template>
       </el-table-column>
-      <el-table-column prop="title" label="友链简介">
+      <el-table-column prop="title" label="友链简介" min-width="300px">
         <template slot-scope="scope">
           <el-input v-model="scope.row.title"></el-input>
         </template>
       </el-table-column>
-      <el-table-column prop="logo" label="友链头像">
+      <el-table-column prop="logo" label="友链头像" min-width="200px">
         <template slot-scope="scope">
           <el-input v-model="scope.row.logo">
             <el-avatar
@@ -28,7 +28,7 @@
           </el-input>
         </template>
       </el-table-column>
-      <el-table-column label="操作">
+      <el-table-column label="操作" align="center" min-width="200px">
         <template slot-scope="scope">
           <el-button
             v-if="scope.row._id"
@@ -51,6 +51,7 @@
       </el-table-column>
     </el-table>
     <el-button
+      class="btn"
       circle
       icon="el-icon-plus"
       @click="handleAddLinkItem"
@@ -85,10 +86,19 @@ export default {
     // 处理修改链接事件
     handleChangeLink(item) {
       console.log(item);
-      this.$http.post("/back/changeLink", {
-        method: "update",
-        link: item.row,
-      });
+      this.$http
+        .post("/back/changeLink", {
+          method: "update",
+          link: item.row,
+        })
+        .then((res) => {
+          this.$notify({
+            title: "成功",
+            message: "成功修改友链！",
+            duration: 1000,
+            type: "success",
+          });
+        });
     },
     // 处理删除链接事件
     handleDelLink(item) {
@@ -143,4 +153,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .btn {
+    margin-top: 20px;
+  }
+}
 </style>
