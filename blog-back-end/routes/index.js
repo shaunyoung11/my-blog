@@ -304,6 +304,7 @@ router.post('/back/postArticle', function (req, res, next) {
     model.connect((db) => {
       db.collection('articles')
         .find()
+        .sort({ cid: -1 })
         .limit(1)
         .toArray((err, docs) => {
           console.log(docs);
