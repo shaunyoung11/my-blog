@@ -72,9 +72,40 @@ export default {
   methods: {
     handlePostArticle() {
       console.log(this.article);
-      this.$http.post("/back/postArticle", this.article).then((res) => {
-        console.log(res);
-      });
+      if (
+        this.article.title !== "" &&
+        this.article.content !== "" &&
+        this.article.date !== "" &&
+        this.article.group !== "" &&
+        this.article.cover !== "" &&
+        this.article.abstract !== ""
+      ) {
+        this.$http.post("/back/postArticle", this.article).then((res) => {
+          console.log(res);
+          if (res.data.msg === "Succeed!") {
+            this.$notify({
+              title: "成功",
+              message: "发布成功！",
+              duration: 1000,
+              type: "success",
+            });
+          } else {
+            this.$notify({
+              title: "失败",
+              message: "发布失败！请检查服务器设置！",
+              duration: 1500,
+              type: "info",
+            });
+          }
+        });
+      } else {
+        this.$notify({
+          title: "失败",
+          message: "请完善文章信息！",
+          duration: 1500,
+          type: "info",
+        });
+      }
     },
   },
   mounted() {
