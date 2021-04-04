@@ -10,7 +10,7 @@ import {
 // const root =
 //   'https://www.fastmock.site/mock/6ed5b8c00a26ca0e931dcba01b79b475/myblog';
 
-axios.defaults.baseURL = 'http://127.0.0.1:3000';
+axios.defaults.baseURL = 'http://192.168.1.148:3000';
 
 /**
  * 获取文章信息
