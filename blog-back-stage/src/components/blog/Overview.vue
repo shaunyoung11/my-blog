@@ -14,9 +14,7 @@
           :placeholder="item.placeholder"
           v-model="item.value"
         >
-          <el-button slot="append" @click="handleChangeInfo">{{
-            item.btn
-          }}</el-button>
+          <el-button slot="append" @click="handleChangeInfo">修改</el-button>
         </el-input>
       </el-form-item>
     </el-form>

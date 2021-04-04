@@ -1,45 +1,50 @@
 <template>
   <div class="write">
-    <el-input
-      type="text"
-      placeholder="请输入文章标题"
-      v-model="article.title"
-    ></el-input>
-    <el-input
-      type="textarea"
-      v-model="article.content"
-      :autosize="{ minRows: 20 }"
-    ></el-input>
-    <el-input
-      type="text"
-      placeholder="请输入文章摘要"
-      v-model="article.abstract"
-    ></el-input>
-    <el-input
-      type="text"
-      placeholder="请输入文章作者"
-      autocomplete="on"
-      v-model="article.author"
-    ></el-input>
-    <el-input
-      type="url"
-      placeholder="请输入封面图片地址"
-      v-model="article.cover"
-    ></el-input>
-    <el-input
-      type="group"
-      placeholder="请输入分组标签名称"
-      v-model="article.group"
-    ></el-input>
-    <el-date-picker
-      v-model="article.date"
-      type="date"
-      format="yyyy 年 MM 月 dd 日"
-      value-format="yyyy-MM-dd"
-      placeholder="请选择日期"
-      :picker-options="options"
-    ></el-date-picker>
-    <el-button @click="handlePostArticle">确认</el-button>
+    <div class="main">
+      <el-input
+        class="item"
+        type="text"
+        placeholder="请输入文章标题"
+        v-model="article.title"
+      ></el-input>
+      <el-input
+        class="item"
+        type="textarea"
+        placeholder="请输入文章内容"
+        v-model="article.content"
+        :autosize="{ minRows: 20 }"
+      ></el-input>
+    </div>
+    <div class="info">
+      <el-input
+        type="textarea"
+        placeholder="请输入文章摘要"
+        v-model="article.abstract"
+        :autosize="{ minRows: 5 }"
+      ></el-input>
+      <el-input
+        class="item"
+        type="url"
+        placeholder="请输入封面图片地址"
+        v-model="article.cover"
+      ></el-input>
+      <el-input
+        class="item"
+        type="group"
+        placeholder="请输入分组标签名称"
+        v-model="article.group"
+      ></el-input>
+      <el-date-picker
+        v-model="article.date"
+        class="item"
+        type="date"
+        format="yyyy 年 MM 月 dd 日"
+        value-format="yyyy-MM-dd"
+        placeholder="请选择日期"
+        :picker-options="options"
+      ></el-date-picker>
+      <el-button class="item" @click="handlePostArticle">确认</el-button>
+    </div>
   </div>
 </template>
 
@@ -50,7 +55,6 @@ export default {
       article: {
         title: "",
         abstract: "",
-        author: "",
         date: "",
         view: 0,
         group: "",
@@ -84,4 +88,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.write {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  .main {
+    width: 69%;
+    display: flex;
+    flex-direction: column;
+    .item:not(:first-child) {
+      margin-top: 24px;
+    }
+  }
+  .info {
+    width: 29%;
+    display: flex;
+    flex-direction: column;
+    .item:not(:first-child) {
+      margin-top: 16px;
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 800px) {
+  .write {
+    flex-direction: column;
+    .main {
+      width: 100%;
+    }
+    .info {
+      width: 100%;
+      margin-top: 36px;
+    }
+  }
+}
 </style>
