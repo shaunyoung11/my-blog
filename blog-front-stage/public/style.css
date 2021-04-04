@@ -7,6 +7,7 @@ body {
 }
 .ant-layout {
   min-height: 101vh !important;
+  background-color: var(--gray-100) !important;
 }
 .ant-layout-header {
   padding: 0 !important;
@@ -19,11 +20,14 @@ body {
 }
 .ant-layout-footer {
   padding: 0 !important;
+  background-color: var(--gray-100) !important;
+  margin-top: 5vh;
 }
 
 :root {
   --gray-0: #ffffff;
   --gray-100: #f0f2f5;
+  --gray-200: #eff0f1;
   --gray-400-disable: #bbbfc4;
   --gray-500-info: #8f959e;
   --gray-600-h2: #646a73;
