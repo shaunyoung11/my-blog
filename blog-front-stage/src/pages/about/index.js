@@ -20,7 +20,7 @@ class About extends Component {
           size={125}
         ></Avatar>
         <div
-          className="content"
+          className="content markdown"
           dangerouslySetInnerHTML={{
             __html: this.state.about && this.state.about.contentHTML,
           }}
