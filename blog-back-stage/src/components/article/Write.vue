@@ -7,7 +7,7 @@
     ></el-input>
     <el-input
       type="textarea"
-      v-model="content"
+      v-model="article.content"
       :autosize="{ minRows: 20 }"
     ></el-input>
     <el-input
@@ -56,8 +56,8 @@ export default {
         group: "",
         comment: 0,
         cover: "",
+        content: "",
       },
-      content: "",
       options: {
         disabledDate(time) {
           return time.getTime() > Date.now();
@@ -68,6 +68,9 @@ export default {
   methods: {
     handlePostArticle() {
       console.log(this.article);
+      this.$http.post("/back/postArticle", this.article).then((res) => {
+        console.log(res);
+      });
     },
   },
   mounted() {
