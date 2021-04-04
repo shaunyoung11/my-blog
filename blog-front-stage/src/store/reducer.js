@@ -30,7 +30,13 @@ export default (state = defaultState, action) => {
   if (action.type === GET_HEADER) {
     console.log(action.value);
     let newState = JSON.parse(JSON.stringify(state));
-    newState.siteInfo = action.value;
+    newState.siteLogo = action.value[0].value; // 站点 Logo
+    newState.siteName = action.value[1].value; // 站点名称
+    newState.siteUrl = action.value[2].value; // 站点地址
+    newState.siteIntro = action.value[3].value; // 站点简介
+    newState.siteICP = action.value[4].value; // ICP 备案信息
+    newState.siteGithub = action.value[5].value; // GitHub 地址
+    newState.siteMail = action.value[6].value; // 站点邮箱地址
     return newState;
   }
   if (action.type === GET_POST) {
