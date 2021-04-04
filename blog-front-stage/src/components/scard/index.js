@@ -14,7 +14,7 @@ function Scard(props) {
           <Tag className="group" icon={<FolderOpenOutlined />} color="geekblue">
             {props.group}
           </Tag>
-          <Title level={2} className="title">
+          <Title level={3} className="title">
             {props.title}
           </Title>
           <Text className="abstract" type="secondary">
@@ -23,7 +23,7 @@ function Scard(props) {
         </Typography>
         <div className="info">
           <Avatar className="avatar" src={props.avatar}></Avatar>
-          <Text className="author">{props.author}</Text>
+          <Text className="date">{props.date}</Text>
         </div>
       </div>
     </Link>
