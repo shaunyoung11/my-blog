@@ -66,12 +66,16 @@ class Header extends Component {
           </Button>
         </div>
         <div className="contact">
-          <a className="link" href="https://linkedin.com">
+          <a className="link" href="https://linkedin.com" target="_blank">
             <Tag icon={<LinkedinOutlined />} color="#55acee">
               LinkedIn
             </Tag>
           </a>
-          <a className="link" href={'mailto:' + this.state.siteMail}>
+          <a
+            className="link"
+            href={'mailto:' + this.state.siteMail}
+            target="_blank"
+          >
             <Tag icon={<MailOutlined />} color="green">
               email
             </Tag>
