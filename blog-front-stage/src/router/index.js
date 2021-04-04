@@ -6,12 +6,13 @@ import Post from '../pages/post/post';
 import MyFooter from '../components/universal/footer';
 import MyHeader from '../components/universal/header';
 import { Layout, ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
 
 const { Header, Content, Footer } = Layout;
 
 function AppRouter() {
   return (
-    <ConfigProvider autoInsertSpaceInButton={false}>
+    <ConfigProvider autoInsertSpaceInButton={false} locale={zhCN}>
       <Router>
         <Layout>
           <Header>
