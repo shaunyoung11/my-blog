@@ -74,7 +74,7 @@ router.get('/front/getHeader', function (req, res, next) {
 router.get('/front/getPost/:cid', function (req, res, next) {
   model.connect((db) => {
     let cid = parseInt(req.params.cid);
-    db.collection('posts')
+    db.collection('articles')
       .find({ cid: cid })
       .toArray((err, docs) => {
         if (err) {
@@ -291,7 +291,7 @@ router.post('/back/postArticle', function (req, res, next) {
         .limit(1)
         .toArray((err, docs) => {
           console.log(docs);
-          req.body.cid = ((docs[0] && docs[0].cid) || -1) + 1;
+          req.body.cid = docs[0] ? docs[0].cid + 1 : 0;
           req.body.contentHTML = markdown.toHTML(req.body.content);
           model.connect((db) => {
             db.collection('articles').insertOne(req.body, function (err) {
