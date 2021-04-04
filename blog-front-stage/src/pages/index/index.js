@@ -33,9 +33,9 @@ class Archive extends Component {
               title={item.title}
               abstract={item.abstract}
               group={item.group}
-              author={item.author}
+              date={item.date}
               avatar="https://shaun-logo.oss-cn-beijing.aliyuncs.com/my_info.png"
-              cover="https://miro.medium.com/max/2048/0*NndyxXhtNtRO-49K.jpg"
+              cover={item.cover}
             ></Scard>
           );
         })}
