@@ -17,6 +17,7 @@ import {
   Table,
   TableColumn,
   DatePicker,
+  Pagination,
 } from 'element-ui';
 
 Vue.use(Container);
@@ -35,4 +36,5 @@ Vue.use(Button);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(DatePicker);
+Vue.use(Pagination);
 Vue.prototype.$notify = Notification;
