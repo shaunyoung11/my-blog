@@ -9,7 +9,7 @@ import {
   EyeOutlined,
   CommentOutlined,
 } from '@ant-design/icons';
-import './post.scss';
+import './style.scss';
 
 const { Title } = Typography;
 

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Archive from '../pages/index';
-import About from '../pages/about/about';
-import Links from '../pages/link/link';
-import Post from '../pages/post/post';
+import About from '../pages/about';
+import Links from '../pages/link';
+import Post from '../pages/post';
 import MyFooter from '../components/universal/footer';
 import MyHeader from '../components/universal/header';
 import { Layout, ConfigProvider } from 'antd';
