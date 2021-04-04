@@ -8,7 +8,12 @@ const { Title, Text } = Typography;
 function Scard(props) {
   return (
     <Link className={'s-card ' + props.className} to={'/post/' + props.cid}>
-      <Image preview={false} className="cover" src={props.cover} />
+      <Image
+        fallback="https://miro.medium.com/max/3200/0*yVM5UR4NAj_GKHr2.jpeg"
+        preview={false}
+        className="cover"
+        src={props.cover}
+      />
       <div className="content">
         <Typography>
           <Tag className="group" icon={<FolderOpenOutlined />} color="geekblue">
