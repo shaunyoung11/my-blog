@@ -10,6 +10,7 @@ import {
   CommentOutlined,
 } from '@ant-design/icons';
 import './style.scss';
+import Hel from '../../components/universal/helmet';
 
 const { Title } = Typography;
 
@@ -28,6 +29,7 @@ class Post extends Component {
   render() {
     return (
       <div className="post">
+        <Hel title={this.state.post.title}></Hel>
         <Image
           fallback="https://miro.medium.com/max/3200/0*yVM5UR4NAj_GKHr2.jpeg"
           className="cover"
