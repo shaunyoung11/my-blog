@@ -17,10 +17,11 @@ class Post extends Component {
 
   render() {
     return (
-      <div
-        className="post content-main"
-        dangerouslySetInnerHTML={{ __html: this.state.post.content }}
-      ></div>
+      <div className="post">
+        <div className="cover"></div>
+        <div className="info"></div>
+        <div className="content"></div>
+      </div>
     );
   }
 
