@@ -26,20 +26,30 @@ router.get(
     model.connect((db) => {
       db.collection('articles')
         .find(group === 'all' ? {} : { group: group })
-        .skip((current - 1) * pagesize)
-        .limit(parseInt(pagesize))
-        .toArray((err, docs) => {
-          if (err) {
-            res.send(errMsg);
-          } else {
-            res.send({
-              code: 200,
-              msg: 'Succeed!',
-              data: {
-                articles: docs,
-              },
-            });
-          }
+        .count(true)
+        .then((count) => {
+          console.log(count);
+          model.connect((db) => {
+            db.collection('articles')
+              .find(group === 'all' ? {} : { group: group })
+              .skip((current - 1) * pagesize)
+              .limit(parseInt(pagesize))
+              .toArray((err, docs) => {
+                console.log(docs);
+                if (err) {
+                  res.send(errMsg);
+                } else {
+                  res.send({
+                    code: 200,
+                    msg: 'Succeed!',
+                    data: {
+                      count: count,
+                      articles: docs,
+                    },
+                  });
+                }
+              });
+          });
         });
     });
   }
@@ -263,9 +273,15 @@ router.post('/back/postAbout', function (req, res, next) {
   } else {
     model.connect((db) => {
       console.log(req.body);
+      req.body.about.contentHTML = markdown.toHTML(req.body.about.content);
       db.collection('about').update(
         { _id: ObjectId(req.body.about._id) },
-        { $set: { content: req.body.about.content } },
+        {
+          $set: {
+            content: req.body.about.content,
+            contentHTML: req.body.about.contentHTML,
+          },
+        },
         function (err) {
           if (err) {
             res.send(errMsg);
