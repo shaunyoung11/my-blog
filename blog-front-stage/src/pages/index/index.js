@@ -28,6 +28,7 @@ class Archive extends Component {
         {this.state.articles.map((item, value) => {
           return (
             <Scard
+              key={item.title + item.cid}
               className="item"
               cid={item.cid}
               title={item.title}

@@ -35,7 +35,6 @@ class Header extends Component {
             type={
               window.location.href.split('/').pop() === '' ? 'primary' : 'text'
             }
-            ghost
             shape="round"
           >
             <Link to="/">首页</Link>
@@ -47,7 +46,6 @@ class Header extends Component {
                 ? 'primary'
                 : 'text'
             }
-            ghost
             shape="round"
           >
             <Link to="/links">友链</Link>
@@ -59,14 +57,18 @@ class Header extends Component {
                 ? 'primary'
                 : 'text'
             }
-            ghost
             shape="round"
           >
             <Link to="/about">关于我</Link>
           </Button>
         </div>
         <div className="contact">
-          <a className="link" href="https://linkedin.com" target="_blank">
+          <a
+            className="link"
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Tag icon={<LinkedinOutlined />} color="#55acee">
               LinkedIn
             </Tag>
@@ -75,6 +77,7 @@ class Header extends Component {
             className="link"
             href={'mailto:' + this.state.siteMail}
             target="_blank"
+            rel="noreferrer"
           >
             <Tag icon={<MailOutlined />} color="green">
               email
