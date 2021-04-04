@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import store from '../../store';
 import { getPost } from '../../store/actionCreators';
-import './post.css';
+import { Image, Tag, Typography } from 'antd';
+import {
+  IdcardOutlined,
+  CalendarOutlined,
+  FolderOpenOutlined,
+  EyeOutlined,
+  CommentOutlined,
+} from '@ant-design/icons';
+import './post.scss';
+
+const { Title } = Typography;
 
 class Post extends Component {
   /**
@@ -18,9 +28,31 @@ class Post extends Component {
   render() {
     return (
       <div className="post">
-        <div className="cover"></div>
-        <div className="info"></div>
-        <div className="content"></div>
+        <Image className="cover" src={this.state.post.cover}></Image>
+        <Typography className="info">
+          <Title>{this.state.post.title}</Title>
+          <div className="detail">
+            <Tag icon={<IdcardOutlined />} color="red">
+              {this.state.post.author}
+            </Tag>
+            <Tag icon={<CalendarOutlined />} color="geekblue">
+              {this.state.post.date}
+            </Tag>
+            <Tag icon={<FolderOpenOutlined />} color="green">
+              {this.state.post.group}
+            </Tag>
+            <Tag icon={<EyeOutlined />} color="purple">
+              {this.state.post.view}
+            </Tag>
+            <Tag icon={<CommentOutlined />} color="cyan">
+              {this.state.post.comment}
+            </Tag>
+          </div>
+        </Typography>
+        <div
+          className="content"
+          dangerouslySetInnerHTML={{ __html: this.state.post.contentHTML }}
+        ></div>
       </div>
     );
   }
