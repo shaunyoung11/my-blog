@@ -28,7 +28,12 @@ class Post extends Component {
   render() {
     return (
       <div className="post">
-        <Image className="cover" src={this.state.post.cover}></Image>
+        <Image
+          fallback="https://miro.medium.com/max/3200/0*yVM5UR4NAj_GKHr2.jpeg"
+          className="cover"
+          src={this.state.post.cover}
+          preview={false}
+        ></Image>
         <Typography className="info">
           <Title>{this.state.post.title}</Title>
           <div className="detail">
@@ -50,7 +55,7 @@ class Post extends Component {
           </div>
         </Typography>
         <div
-          className="content"
+          className="content markdown"
           dangerouslySetInnerHTML={{ __html: this.state.post.contentHTML }}
         ></div>
       </div>
