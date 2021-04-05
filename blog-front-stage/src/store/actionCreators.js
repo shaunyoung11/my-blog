@@ -1,4 +1,5 @@
 import axios from 'axios';
+import url from '../config';
 import {
   GET_ARTICLE,
   GET_HEADER,
@@ -10,7 +11,7 @@ import {
 // const root =
 //   'https://www.fastmock.site/mock/6ed5b8c00a26ca0e931dcba01b79b475/myblog';
 
-axios.defaults.baseURL = 'http://blog.shaunyoung.cn:3697';
+axios.defaults.baseURL = url;
 
 /**
  * 获取文章信息
