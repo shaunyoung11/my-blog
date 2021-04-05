@@ -6,7 +6,7 @@ const { Title, Text } = Typography;
 function Slink(props) {
   return (
     <a href={props.link} className={'s-link ' + props.className}>
-      <Avatar className="avatar" src={props.avatar} size={135}></Avatar>
+      <Avatar className="avatar" src={props.avatar} size={100}></Avatar>
       <div className="info">
         <Typography className="detail">
           <Title className="d-item" level={4}>
