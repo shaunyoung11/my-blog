@@ -22,6 +22,8 @@ body {
   padding: 0 !important;
   background-color: var(--gray-100) !important;
   margin-top: 5vh;
+  display: flex;
+  justify-content: center;
 }
 
 :root {
