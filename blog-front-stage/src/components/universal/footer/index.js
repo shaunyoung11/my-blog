@@ -8,7 +8,7 @@ class Footer extends Component {
     super(props);
     this.state = store.getState();
     this.storeChange = this.storeChange.bind(this);
-    store.subscribe(this.storeChange);
+    this.unsubscribe = store.subscribe(this.storeChange);
   }
   render() {
     return (
@@ -35,6 +35,10 @@ class Footer extends Component {
         </div>
       </div>
     );
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   storeChange() {

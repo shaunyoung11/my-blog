@@ -4,6 +4,7 @@ body {
   overflow-x: hidden;
   background-color: var(--gray-100) !important;
   color: var(--gray-900-h1) !important;
+  width: 100%;
   min-width: 375px;
 }
 .ant-layout {

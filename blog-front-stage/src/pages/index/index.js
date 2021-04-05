@@ -11,7 +11,7 @@ class Archive extends Component {
     this.state = store.getState();
     this.storeChange = this.storeChange.bind(this); // store状态改变时触发的函数
     this.handlePageChange = this.handlePageChange.bind(this); // 处理页码改变
-    store.subscribe(this.storeChange); // 订阅store状态改变
+    this.unsubscribe = store.subscribe(this.storeChange); // 订阅store状态改变
   }
 
   componentDidMount() {
@@ -21,6 +21,10 @@ class Archive extends Component {
         : this.props.match.params.group;
     const action = getArticle(group, this.state.current, this.state.pageSize);
     store.dispatch(action);
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   render() {
