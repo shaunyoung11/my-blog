@@ -5,9 +5,10 @@ import store from './store';
 import axios from 'axios';
 import './plugin/element';
 import 'element-ui/lib/theme-chalk/index.css';
+import url from './config';
 
 Vue.config.productionTip = false;
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = url;
 axios.interceptors.request.use((config) => {
   console.log(config);
   config.headers.Authorization = window.sessionStorage.getItem('uat');
