@@ -24,7 +24,7 @@ class Links extends Component {
                 name={item.name}
                 link={item.url}
                 avatar={item.logo}
-                description={item.title}
+                intro={item.title}
               ></Slink>
             );
           })}
