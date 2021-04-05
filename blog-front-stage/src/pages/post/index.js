@@ -34,7 +34,6 @@ class Post extends Component {
           fallback="https://miro.medium.com/max/3200/0*yVM5UR4NAj_GKHr2.jpeg"
           className="cover"
           src={this.state.post.cover}
-          preview={false}
         ></Image>
         <Typography className="info">
           <Title>{this.state.post.title}</Title>

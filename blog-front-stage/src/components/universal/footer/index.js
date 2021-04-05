@@ -15,6 +15,7 @@ class Footer extends Component {
       <div className="footer">
         <div className="me">
           <Sintro
+            className="intro"
             avatar={this.state.siteLogo}
             name={this.state.siteName}
             intro={this.state.siteIntro}
