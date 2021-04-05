@@ -1,18 +1,22 @@
-import { Avatar, Card } from 'antd';
+import { Avatar, Typography } from 'antd';
 import './style.scss';
 
-const { Meta } = Card;
+const { Title, Text } = Typography;
 
 function Slink(props) {
   return (
     <a href={props.link} className={'s-link ' + props.className}>
-      <Card bordered={false}>
-        <Meta
-          avatar={<Avatar src={props.avatar} />}
-          title={props.name}
-          description={props.description}
-        />
-      </Card>
+      <Avatar className="avatar" src={props.avatar} size={135}></Avatar>
+      <div className="info">
+        <Typography className="detail">
+          <Title className="d-item" level={4}>
+            {props.name}
+          </Title>
+          <Text className="d-item" type="secondary">
+            {props.intro}
+          </Text>
+        </Typography>
+      </div>
     </a>
   );
 }
