@@ -1,0 +1,29 @@
+.s-intro {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 20px;
+  background-color: var(--gray-0);
+  box-shadow: 0 4px 8px var(--box-shadow);
+  .avatar {
+    flex-shrink: 0;
+    border-radius: 20px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 16px;
+    .detail {
+      .d-item {
+        margin-top: 12px;
+      }
+    }
+    .btns {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
