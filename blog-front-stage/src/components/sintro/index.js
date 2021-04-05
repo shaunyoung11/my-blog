@@ -1,5 +1,6 @@
 import { Avatar, Button, Typography } from 'antd';
 import { MailOutlined, GithubOutlined } from '@ant-design/icons';
+import './style.scss';
 
 const { Title, Text } = Typography;
 
@@ -18,13 +19,19 @@ function Sintro(props) {
         </Typography>
         <div className="btns">
           <Button
-            size="small"
+            size="medium"
             icon={<MailOutlined />}
+            type="default"
             href={'mailto:' + props.mail}
           >
             Email
           </Button>
-          <Button size="small" icon={<GithubOutlined />} href={props.github}>
+          <Button
+            size="medium"
+            icon={<GithubOutlined />}
+            type="primary"
+            href={props.github}
+          >
             GitHub
           </Button>
         </div>
