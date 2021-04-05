@@ -10,7 +10,7 @@ class Links extends Component {
     super(props);
     this.state = store.getState();
     this.storeChange = this.storeChange.bind(this);
-    store.subscribe(this.storeChange);
+    this.unsubscribe = store.subscribe(this.storeChange);
   }
   render() {
     return (
@@ -20,6 +20,7 @@ class Links extends Component {
           {this.state.link.map((item, index) => {
             return (
               <Slink
+                key={item.name + item.link}
                 className="item"
                 name={item.name}
                 link={item.url}
@@ -36,6 +37,9 @@ class Links extends Component {
   componentDidMount() {
     const action = getLink();
     store.dispatch(action);
+  }
+  componentWillUnmount() {
+    this.unsubscribe();
   }
   storeChange() {
     this.setState(store.getState());

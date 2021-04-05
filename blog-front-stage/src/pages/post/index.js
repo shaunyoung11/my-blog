@@ -23,7 +23,7 @@ class Post extends Component {
     super(props);
     this.state = store.getState();
     this.storeChange = this.storeChange.bind(this);
-    store.subscribe(this.storeChange);
+    this.unsubscribe = store.subscribe(this.storeChange);
   }
 
   render() {
@@ -66,6 +66,10 @@ class Post extends Component {
   componentDidMount() {
     const action = getPost(this.props.match.params.cid);
     store.dispatch(action);
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   storeChange() {

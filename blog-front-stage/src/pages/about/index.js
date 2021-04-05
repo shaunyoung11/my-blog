@@ -10,7 +10,7 @@ class About extends Component {
     super(props);
     this.state = store.getState();
     this.storeChange = this.storeChange.bind(this);
-    store.subscribe(this.storeChange);
+    this.unsubscribe = store.subscribe(this.storeChange);
   }
   render() {
     return (
@@ -34,6 +34,11 @@ class About extends Component {
     const action = getAbout();
     store.dispatch(action);
   }
+
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
   storeChange() {
     this.setState(store.getState());
   }

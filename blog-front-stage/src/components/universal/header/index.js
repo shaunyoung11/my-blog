@@ -14,7 +14,7 @@ class Header extends Component {
     this.state = store.getState();
     this.handleBurgerClick = this.handleBurgerClick.bind(this);
     this.storeChange = this.storeChange.bind(this);
-    store.subscribe(this.storeChange);
+    this.unsubscribe = store.subscribe(this.storeChange);
   }
   render() {
     return (
@@ -92,6 +92,10 @@ class Header extends Component {
     this.setState({
       showNav: !this.state.showNav,
     });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 
   storeChange() {

@@ -7,7 +7,7 @@ class Hel extends Component {
     super(props);
     this.state = store.getState();
     this.storeChange = this.storeChange.bind(this);
-    store.subscribe(this.storeChange);
+    this.unsubscribe = store.subscribe(this.storeChange);
   }
   render() {
     return (
@@ -19,6 +19,10 @@ class Hel extends Component {
   }
   storeChange() {
     this.setState(store.getState());
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
   }
 }
 
