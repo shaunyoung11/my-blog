@@ -6,8 +6,8 @@ const { Title, Text } = Typography;
 
 function Sintro(props) {
   return (
-    <div className="s-intro">
-      <Avatar className="avatar" src={props.avatar} size={135}></Avatar>
+    <div className={'s-intro ' + props.className}>
+      <Avatar className="avatar " src={props.avatar} size={135}></Avatar>
       <div className="info">
         <Typography className="detail">
           <Title className="d-item" level={4}>

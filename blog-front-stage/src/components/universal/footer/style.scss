@@ -6,3 +6,36 @@
   justify-content: space-between;
   padding: 10vh 0;
 }
+
+@media (max-width: 1200px) {
+  .footer {
+    width: var(--content-width-regular);
+    flex-direction: column;
+    align-items: center;
+    .right {
+      margin-top: 36px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .footer {
+    width: var(--content-width-medium);
+    .me {
+      width: 100%;
+      .intro {
+        padding: 24px 36px;
+        width: 100% !important;
+        flex-direction: column;
+        height: 324px;
+        .avatar {
+          align-self: center;
+        }
+        .info {
+          padding-left: 0;
+          padding-top: 12px;
+        }
+      }
+    }
+  }
+}
