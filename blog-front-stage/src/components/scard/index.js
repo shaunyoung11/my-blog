@@ -19,10 +19,10 @@ function Scard(props) {
           <Tag className="group" icon={<FolderOpenOutlined />} color="geekblue">
             {props.group}
           </Tag>
-          <Title level={3} className="title">
+          <Title level={3} className="title" title={props.title}>
             {props.title}
           </Title>
-          <Text className="abstract" type="secondary">
+          <Text className="abstract" type="secondary" title={props.abstract}>
             {props.abstract}
           </Text>
         </Typography>
