@@ -32,7 +32,7 @@ router.get(
           model.connect((db) => {
             db.collection('articles')
               .find(group === 'all' ? {} : { group: group })
-              .sort({ date: 1 })
+              .sort({ date: -1 })
               .skip((current - 1) * pagesize)
               .limit(parseInt(pagesize))
               .toArray((err, docs) => {
