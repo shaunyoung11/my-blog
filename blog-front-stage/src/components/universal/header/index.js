@@ -65,7 +65,7 @@ class Header extends Component {
         <div className="contact">
           <a
             className="link"
-            href="https://linkedin.com"
+            href={this.state.siteLinkedIn}
             target="_blank"
             rel="noreferrer"
           >

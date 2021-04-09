@@ -36,6 +36,7 @@ export default (state = defaultState, action) => {
     newState.siteICP = action.value[4].value; // ICP 备案信息
     newState.siteGithub = action.value[5].value; // GitHub 地址
     newState.siteMail = action.value[6].value; // 站点邮箱地址
+    newState.siteLinkedIn = action.value[7].value; // 站点领英地址
     return newState;
   }
   if (action.type === GET_POST) {
