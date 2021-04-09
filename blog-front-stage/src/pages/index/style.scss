@@ -19,6 +19,10 @@
   .item:nth-child(3) {
     margin-top: 36px;
   }
+  .pager {
+    grid-column: 2/3;
+    justify-self: center;
+  }
 }
 
 @media (max-width: 1200px) {

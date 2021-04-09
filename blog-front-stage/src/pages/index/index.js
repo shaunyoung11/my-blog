@@ -4,6 +4,7 @@ import { getArticle } from '../../store/actionCreators';
 import Scard from '../../components/scard';
 import './style.scss';
 import Hel from '../../components/universal/helmet';
+import { Pagination } from 'antd';
 
 class Archive extends Component {
   constructor(props) {
@@ -47,6 +48,12 @@ class Archive extends Component {
             ></Scard>
           );
         })}
+        <Pagination
+          className="pager"
+          total={this.state.totalArticles}
+          current={this.state.current}
+          pageSize={this.state.pageSize}
+        ></Pagination>
       </div>
     );
   }
