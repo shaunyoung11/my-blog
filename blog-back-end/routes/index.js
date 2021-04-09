@@ -34,6 +34,7 @@ router.get(
               .find(group === 'all' ? {} : { group: group })
               .skip((current - 1) * pagesize)
               .limit(parseInt(pagesize))
+              .sort({ date: 1 })
               .toArray((err, docs) => {
                 console.log(docs);
                 if (err) {
