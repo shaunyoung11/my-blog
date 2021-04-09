@@ -41,6 +41,7 @@
       :page-size="pageSize"
       :current-page="currentPage"
       :total="total"
+      @current-change="getArticles"
     >
     </el-pagination>
   </div>
@@ -58,15 +59,7 @@ export default {
   },
 
   mounted() {
-    this.$http
-      .get(`/front/getArticles/all/${this.currentPage}/${this.pageSize}`)
-      .then((res) => {
-        console.log(res);
-        this.$data.articles = JSON.parse(
-          JSON.stringify(res.data.data.articles)
-        );
-        this.$data.total = res.data.data.count;
-      });
+    this.getArticles();
   },
 
   methods: {
@@ -100,6 +93,19 @@ export default {
           });
         }
       });
+    },
+    getArticles(e = 1) {
+      console.log(e);
+      let current = e;
+      this.$http
+        .get(`/front/getArticles/all/${current}/${this.pageSize}`)
+        .then((res) => {
+          console.log(res);
+          this.$data.articles = JSON.parse(
+            JSON.stringify(res.data.data.articles)
+          );
+          this.$data.total = res.data.data.count;
+        });
     },
   },
 };
