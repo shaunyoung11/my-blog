@@ -332,6 +332,9 @@ router.post('/back/postArticle', function (req, res, next) {
   }
 });
 
+/**
+ * 删除文章接口
+ */
 router.post('/back/delArticle', function (req, res, next) {
   model.connect((db) => {
     db.collection('articles').deleteOne({ cid: req.body.del }, function (err) {
@@ -344,6 +347,25 @@ router.post('/back/delArticle', function (req, res, next) {
         });
       }
     });
+  });
+});
+
+router.post('/back/modifyArticle', function (req, res, next) {
+  model.connect((db) => {
+    db.collection('articles').updateOne(
+      { cid: req.body.cid },
+      req.body,
+      function (err) {
+        if (err) {
+          res.send(errMsg);
+        } else {
+          res.send({
+            code: 200,
+            msg: 'Succeed!',
+          });
+        }
+      }
+    );
   });
 });
 
