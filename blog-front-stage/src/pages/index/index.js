@@ -11,8 +11,6 @@ class Archive extends Component {
     super(props);
     console.log(props);
     this.state = store.getState();
-    this.state.current = 1;
-    this.state.pageSize = 9;
     this.state.group =
       this.props.match.params.group === undefined
         ? 'all'
@@ -60,6 +58,7 @@ class Archive extends Component {
         <Pagination
           className="pager"
           total={this.state.totalArticles}
+          current={this.state.current}
           pageSize={this.state.pageSize}
           onChange={this.handlePageChange}
           hideOnSinglePage
@@ -76,12 +75,9 @@ class Archive extends Component {
    *
    * @param {number} page
    */
-  handlePageChange(page) {
+  handlePageChange(page, size) {
     // 将传入的page设置为current
     console.log(page);
-    this.setState({
-      current: page,
-    });
     const action = getArticle(this.state.group, page, this.state.pageSize);
     store.dispatch(action);
   }
