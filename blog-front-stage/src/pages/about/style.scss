@@ -15,3 +15,21 @@
     text-align: center;
   }
 }
+
+@media (max-width: 1200px) {
+  .about {
+    width: var(--content-width-regular);
+  }
+}
+
+@media (max-width: 700px) {
+  .about {
+    width: var(--content-width-medium);
+  }
+}
+
+@media (max-width: 500px) {
+  .about {
+    width: var(--content-width-small);
+  }
+}

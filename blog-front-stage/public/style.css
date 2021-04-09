@@ -5,7 +5,6 @@ body {
   background-color: var(--gray-100) !important;
   color: var(--gray-900-h1) !important;
   width: 100%;
-  min-width: 375px;
 }
 .ant-layout {
   min-height: 101vh !important;
@@ -39,6 +38,7 @@ body {
   --content-width-large: 65%;
   --content-width-regular: 75%;
   --content-width-medium: 85%;
+  --content-width-small: 90%;
   --box-shadow: rgba(200, 200, 200, 0.2);
 }
 
