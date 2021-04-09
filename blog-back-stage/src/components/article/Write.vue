@@ -12,7 +12,7 @@
         type="textarea"
         placeholder="请输入文章内容"
         v-model="article.content"
-        :autosize="{ minRows: 20 }"
+        :rows="20"
       ></el-input>
     </div>
     <div class="info">
@@ -20,7 +20,7 @@
         type="textarea"
         placeholder="请输入文章摘要"
         v-model="article.abstract"
-        :autosize="{ minRows: 5 }"
+        :rows="5"
       ></el-input>
       <el-input
         class="item"
@@ -67,6 +67,7 @@ export default {
           return time.getTime() > Date.now();
         },
       },
+      modify: false,
     };
   },
   methods: {
@@ -80,24 +81,46 @@ export default {
         this.article.cover !== "" &&
         this.article.abstract !== ""
       ) {
-        this.$http.post("/back/postArticle", this.article).then((res) => {
-          console.log(res);
-          if (res.data.msg === "Succeed!") {
-            this.$notify({
-              title: "成功",
-              message: "发布成功！",
-              duration: 1000,
-              type: "success",
-            });
-          } else {
-            this.$notify({
-              title: "失败",
-              message: "发布失败！请检查服务器设置！",
-              duration: 1500,
-              type: "info",
-            });
-          }
-        });
+        if (this.modify) {
+          this.$http.post("/back/postArticle", this.article).then((res) => {
+            console.log(res);
+            if (res.data.msg === "Succeed!") {
+              this.$notify({
+                title: "成功",
+                message: "发布成功！",
+                duration: 1000,
+                type: "success",
+              });
+              this.$router.push("/manage");
+            } else {
+              this.$notify({
+                title: "失败",
+                message: "发布失败！请检查服务器设置！",
+                duration: 1500,
+                type: "info",
+              });
+            }
+          });
+        } else {
+          this.$http.post("/back/modifyArticle", this.article).then((res) => {
+            if (res.data.msg === "Succeed!") {
+              this.$notify({
+                title: "成功",
+                message: "修改成功！",
+                duration: 1000,
+                type: "success",
+              });
+              this.$router.push("/manage");
+            } else {
+              this.$notify({
+                title: "失败",
+                message: "修改失败！请检查服务器设置！",
+                duration: 1500,
+                type: "info",
+              });
+            }
+          });
+        }
       } else {
         this.$notify({
           title: "失败",
@@ -109,10 +132,9 @@ export default {
     },
   },
   mounted() {
-    if (this.$props && this.$props.cid) {
-      this.$http.get("/front/getPost").then((res) => {
-        console.log(res);
-      });
+    if (this.$route.params.article) {
+      this.$data.article = this.$route.params.article;
+      this.$data.modify = true;
     }
   },
 };
