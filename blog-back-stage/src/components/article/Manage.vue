@@ -4,22 +4,25 @@
       <el-table-column
         prop="title"
         label="文章标题"
-        min-width="200px"
+        min-width="400px"
       ></el-table-column>
       <el-table-column
         prop="date"
         label="发布日期"
+        align="center"
         min-width="200px"
       ></el-table-column>
       <el-table-column
         prop="group"
         label="文章分类"
-        min-width="300px"
+        align="center"
+        min-width="200px"
       ></el-table-column>
       <el-table-column
         prop="view"
         label="浏览量"
-        min-width="200px"
+        align="center"
+        min-width="100px"
       ></el-table-column>
       <el-table-column label="操作" align="center" min-width="200px">
         <template slot-scope="scope">
