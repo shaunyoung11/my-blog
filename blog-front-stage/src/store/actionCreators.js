@@ -25,6 +25,7 @@ export const getArticle = (type, current, pageSize) => {
       .get('/front/getArticles/' + type + '/' + current + '/' + pageSize)
       .then((res) => {
         console.log(res);
+        res.data.data.current = current;
         const action = getArticleAction(res.data.data);
         dispatch(action);
       });

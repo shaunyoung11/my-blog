@@ -10,6 +10,9 @@ const defaultState = {
   siteInfo: [],
   articles: [],
   link: [],
+  post: {},
+  current: 1,
+  pageSize: 9,
 };
 // eslint-disable-next-line
 export default (state = defaultState, action) => {
@@ -20,6 +23,7 @@ export default (state = defaultState, action) => {
     // 对 newState 中的数据进行更新
     newState.articles = action.value.articles;
     newState.totalArticles = action.value.count;
+    newState.current = action.value.current;
     return newState;
   }
   if (action.type === GET_HEADER) {

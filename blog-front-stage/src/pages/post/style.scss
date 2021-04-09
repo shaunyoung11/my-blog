@@ -21,3 +21,30 @@
     margin-top: 36px;
   }
 }
+
+@media (max-width: 1200px) {
+  .post {
+    .info,
+    .content {
+      width: var(--content-width-regular);
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .post {
+    .info,
+    .content {
+      width: var(--content-width-medium);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .post {
+    .info,
+    .content {
+      width: var(--content-width-small);
+    }
+  }
+}
