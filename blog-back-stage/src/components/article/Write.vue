@@ -81,7 +81,7 @@ export default {
         this.article.cover !== "" &&
         this.article.abstract !== ""
       ) {
-        if (this.modify) {
+        if (!this.modify) {
           this.$http.post("/back/postArticle", this.article).then((res) => {
             console.log(res);
             if (res.data.msg === "Succeed!") {
