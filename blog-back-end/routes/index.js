@@ -354,7 +354,19 @@ router.post('/back/modifyArticle', function (req, res, next) {
   model.connect((db) => {
     db.collection('articles').updateOne(
       { cid: req.body.cid },
-      req.body,
+      {
+        $set: {
+          title: req.body.title,
+          abstract: req.body.abstract,
+          date: req.body.date,
+          view: req.body.view,
+          group: req.body.group,
+          comment: req.body.comment,
+          cover: req.body.cover,
+          content: req.body.content,
+          contentHTML: req.body.contentHTML,
+        },
+      },
       function (err) {
         if (err) {
           res.send(errMsg);
