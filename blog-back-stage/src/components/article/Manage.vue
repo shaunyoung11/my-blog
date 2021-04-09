@@ -52,7 +52,7 @@ export default {
   data() {
     return {
       articles: [],
-      pageSize: 5,
+      pageSize: 10,
       currentPage: 1,
       total: 0,
     };
