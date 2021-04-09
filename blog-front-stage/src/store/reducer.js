@@ -25,6 +25,7 @@ export default (state = defaultState, action) => {
     let newState = JSON.parse(JSON.stringify(state));
     // 对 newState 中的数据进行更新
     newState.articles = action.value.articles;
+    newState.totalArticles = action.value.count;
     return newState;
   }
   if (action.type === GET_HEADER) {
