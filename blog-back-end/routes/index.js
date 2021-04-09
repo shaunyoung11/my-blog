@@ -297,6 +297,9 @@ router.post('/back/postAbout', function (req, res, next) {
   }
 });
 
+/**
+ * 发布文章接口
+ */
 router.post('/back/postArticle', function (req, res, next) {
   if (req.headers.authorization !== uat) {
     res.send(errMsg);
@@ -326,6 +329,21 @@ router.post('/back/postArticle', function (req, res, next) {
         });
     });
   }
+});
+
+router.post('/back/delArticle', function (req, res, next) {
+  model.connect((db) => {
+    db.collection('articles').deleteOne({ cid: req.body.del }, function (err) {
+      if (err) {
+        res.send(errMsg);
+      } else {
+        res.send({
+          code: 200,
+          msg: 'Succeed!',
+        });
+      }
+    });
+  });
 });
 
 module.exports = router;
