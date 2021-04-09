@@ -36,6 +36,7 @@
       </el-table-column>
     </el-table>
     <el-pagination
+      class="pager"
       layout="prev, pager, next"
       :page-size="pageSize"
       :current-page="currentPage"
@@ -105,4 +106,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.manage {
+  display: flex;
+  flex-direction: column;
+  .pager {
+    margin-top: 12px;
+    align-self: flex-end;
+  }
+}
 </style>
