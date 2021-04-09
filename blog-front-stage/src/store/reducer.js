@@ -7,14 +7,8 @@ import {
 } from './actionTypes';
 
 const defaultState = {
-  showNav: false,
-  current: 1,
-  pageSize: 9,
   siteInfo: [],
   articles: [],
-  post: {
-    content: '',
-  },
   link: [],
 };
 // eslint-disable-next-line
