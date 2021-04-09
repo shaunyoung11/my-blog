@@ -9,18 +9,25 @@ import { Pagination } from 'antd';
 class Archive extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = store.getState();
+    this.state.current = 1;
+    this.state.pageSize = 9;
+    this.state.group =
+      this.props.match.params.group === undefined
+        ? 'all'
+        : this.props.match.params.group;
     this.storeChange = this.storeChange.bind(this); // store状态改变时触发的函数
     this.handlePageChange = this.handlePageChange.bind(this); // 处理页码改变
     this.unsubscribe = store.subscribe(this.storeChange); // 订阅store状态改变
   }
 
   componentDidMount() {
-    let group =
-      this.props.match.params.group === undefined
-        ? 'all'
-        : this.props.match.params.group;
-    const action = getArticle(group, this.state.current, this.state.pageSize);
+    const action = getArticle(
+      this.state.group,
+      this.state.current,
+      this.state.pageSize
+    );
     store.dispatch(action);
   }
 
@@ -53,8 +60,9 @@ class Archive extends Component {
         <Pagination
           className="pager"
           total={this.state.totalArticles}
-          current={this.state.current}
           pageSize={this.state.pageSize}
+          onChange={this.handlePageChange}
+          hideOnSinglePage
         ></Pagination>
       </div>
     );
@@ -70,9 +78,12 @@ class Archive extends Component {
    */
   handlePageChange(page) {
     // 将传入的page设置为current
+    console.log(page);
     this.setState({
       current: page,
     });
+    const action = getArticle(this.state.group, page, this.state.pageSize);
+    store.dispatch(action);
   }
 }
 
