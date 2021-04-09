@@ -32,22 +32,24 @@ class Archive extends Component {
     return (
       <div className="page">
         <Hel></Hel>
-        {this.state.articles.map((item, value) => {
-          return (
-            <Scard
-              key={item.title + item.cid}
-              className="item"
-              cid={item.cid}
-              title={item.title}
-              abstract={item.abstract}
-              group={item.group}
-              date={item.date}
-              avatar={this.state.siteLogo}
-              cover={item.cover}
-              author={this.state.siteName}
-            ></Scard>
-          );
-        })}
+        <div className="index-content">
+          {this.state.articles.map((item, value) => {
+            return (
+              <Scard
+                key={item.title + item.cid}
+                className="item"
+                cid={item.cid}
+                title={item.title}
+                abstract={item.abstract}
+                group={item.group}
+                date={item.date}
+                avatar={this.state.siteLogo}
+                cover={item.cover}
+                author={this.state.siteName}
+              ></Scard>
+            );
+          })}
+        </div>
         <Pagination
           className="pager"
           total={this.state.totalArticles}
