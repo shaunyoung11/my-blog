@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# release
+/.vscode
+/public
+/src
+/.eslintcache
+/package.json
+/package-lock.json
+/README.md
+/webpack.config.js
